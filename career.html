@@ -293,7 +293,7 @@
                               <h6 class="header__submenu__title">Sele Ingredients</h6>
                               <p class="header__submenu__desc">Manufactures high quality ingredients, goods</p>
                             </div>
-                            <a class="header__submenu__link" href="businesses-ingredients.html"></a>
+                            <a class="header__submenu__link" href="businesses-sele-ingredients.html"></a>
                           </div>
                         </div>
                       </div>
@@ -364,7 +364,7 @@
                 <span class="btn__text">EN</span></a>
             </div>
             <div class="header__top-cta">
-              <a href="/contact">
+              <a href="/contact-us.html">
                 <span class="btn__text">Contact
                   <i class="sr sr-caret-right"></i></span></a>
             </div>
@@ -492,7 +492,530 @@
         </div>
       </div>
     </div>
+    <!-- @name: Career List-->
+    <div class="career-list">
+      <div class="container">
+        <div class="career-list__inner">
+          <div class="career-list__head">
+            <h2 class="career-list__title">Open Positions Available</h2>
+          </div>
+          <div class="career-list__filter">
 
+            <!--.filter-->
+            <form class="filter filter--grouped">
+              <div class="filter__row filter__row--search"><!--  @name: Form Control-->
+                <div class="form-control js-search form-control--icon"><label class="form-control__label" for="search"></label>
+                  <div class="form-control__icon form-control__icon--before"><i class="sr sr-search"></i></div><input class="form-control__input" type="text" name="search" id="search" placeholder="Search" autocomplete="off" />
+                </div>
+              </div><button class="filter__mobile-trigger" type="button"><i class="sr sr-faders"></i><span>Filters</span></button>
+              <div class="filter__desktop-selects">
+                <div class="filter__row filter__row--select"><!--  @name: Form Control-->
+                  <div class="form-control js-select js-filter-select form-control--icon form-control--select"><label class="form-control__label" for="business"></label>
+                    <div class="form-control__icon form-control__icon--before"><i class="sr sr-faders"></i></div><button class="form-control__select__btn" type="button" data-default-label="All Businesses" data-mobile-label="Filters"><span class="form-control__select__btn-text">All Businesses</span></button><input class="form-control__input" type="hidden" name="business" id="business" placeholder="All Businesses" autocomplete="off" readonly="readonly" />
+                    <div class="form-control__icon form-control__icon--after"><i class="sr sr-caret-down"></i></div>
+                    <div class="form-control__select">
+                      <div class="form-control__select__box">
+                        <div class="form-control__select__head">
+                          <p class="form-control__select__title">Filters</p><button class="form-control__select__close" type="button">
+                            <i class="sr sr-close"></i></button>
+                        </div>
+                        <ul class="form-control__select__list">
+                          <li class="form-control__select__item" data-value="all-businesses" data-text="All Businesses" data-icon=""><span class="form-control__select__item-text">All Businesses</span></li>
+                          <li class="form-control__select__item" data-value="sele-raya-belida" data-text="Sele Raya Belida" data-icon="fire"><i class="form-control__select__item-icon sr sr-fire"></i><span class="form-control__select__item-text">Sele Raya Belida</span></li>
+                          <li class="form-control__select__item" data-value="sele-raya-energy" data-text="Sele Raya Energy" data-icon="lightning"><i class="form-control__select__item-icon sr sr-lightning"></i><span class="form-control__select__item-text">Sele Raya Energy</span></li>
+                          <li class="form-control__select__item" data-value="sele-raya-sejati" data-text="Sele Raya Sejati" data-icon="factory"><i class="form-control__select__item-icon sr sr-factory"></i><span class="form-control__select__item-text">Sele Raya Sejati</span></li>
+                          <li class="form-control__select__item" data-value="sele-raya-aryasatya" data-text="Sele Raya Aryasatya" data-icon="boat"><i class="form-control__select__item-icon sr sr-boat"></i><span class="form-control__select__item-text">Sele Raya Aryasatya</span></li>
+                          <li class="form-control__select__item" data-value="sele-raya-mining" data-text="Sele Raya Mining" data-icon="sketch-logo"><i class="form-control__select__item-icon sr sr-sketch-logo"></i><span class="form-control__select__item-text">Sele Raya Mining</span></li>
+                          <li class="form-control__select__item" data-value="sele-raya-agri" data-text="Sele Raya Agri" data-icon="grains"><i class="form-control__select__item-icon sr sr-grains"></i><span class="form-control__select__item-text">Sele Raya Agri</span></li>
+                          <li class="form-control__select__item" data-value="amindo-wana-persada" data-text="Amindo Wana Persada" data-icon="clover"><i class="form-control__select__item-icon sr sr-clover"></i><span class="form-control__select__item-text">Amindo Wana Persada</span></li>
+                          <li class="form-control__select__item" data-value="investidea-ventures" data-text="Investidea Ventures" data-icon="chart-line-up"><i class="form-control__select__item-icon sr sr-chart-line-up"></i><span class="form-control__select__item-text">Investidea Ventures</span></li>
+                          <li class="form-control__select__item" data-value="sele-ingredients" data-text="Sele Ingredients" data-icon="lab"><i class="form-control__select__item-icon sr sr-lab"></i><span class="form-control__select__item-text">Sele Ingredients</span></li>
+                        </ul>
+                        <div class="form-control__select__actions"><button class="form-control__apply" type="button">Apply</button></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="filter__row filter__row--select"><!--  @name: Form Control-->
+                  <div class="form-control js-select js-filter-select form-control--icon form-control--select"><label class="form-control__label" for="category"></label>
+                    <div class="form-control__icon form-control__icon--before"><i class="sr sr-faders"></i></div><button class="form-control__select__btn" type="button" data-default-label="All Category" data-mobile-label="Filters"><span class="form-control__select__btn-text">All Category</span></button><input class="form-control__input" type="hidden" name="category" id="category" placeholder="All Category" autocomplete="off" readonly="readonly" />
+                    <div class="form-control__icon form-control__icon--after"><i class="sr sr-caret-down"></i></div>
+                    <div class="form-control__select">
+                      <div class="form-control__select__box">
+                        <div class="form-control__select__head">
+                          <p class="form-control__select__title">Filters</p><button class="form-control__select__close" type="button">
+                            <i class="sr sr-close"></i></button>
+                        </div>
+                        <ul class="form-control__select__list">
+                          <li class="form-control__select__item" data-value="all-category" data-text="All Category" data-icon=""><span class="form-control__select__item-text">All Category</span></li>
+                          <li class="form-control__select__item" data-value="exploration" data-text="Exploration" data-icon=""><span class="form-control__select__item-text">Exploration</span></li>
+                          <li class="form-control__select__item" data-value="production" data-text="Production" data-icon=""><span class="form-control__select__item-text">Production</span></li>
+                          <li class="form-control__select__item" data-value="mining" data-text="Mining" data-icon=""><span class="form-control__select__item-text">Mining</span></li>
+                          <li class="form-control__select__item" data-value="hse" data-text="HSE" data-icon=""><span class="form-control__select__item-text">HSE</span></li>
+                        </ul>
+                        <div class="form-control__select__actions"><button class="form-control__apply" type="button">Apply</button></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="filter__panel">
+                <div class="filter__panel__box">
+                  <div class="filter__panel__head">
+                    <p class="filter__panel__title">Filters</p><button class="filter__panel__close" type="button"><i class="sr sr-close"></i></button>
+                  </div>
+                  <div class="filter__panel__body">
+                    <div class="filter__group" data-input-id="business">
+                      <ul class="filter__group__list">
+                        <li class="filter__group__item is-selected" data-value="all-businesses" data-text="All Businesses" data-icon=""><span class="filter__group__item-text">All Businesses</span></li>
+                        <li class="filter__group__item" data-value="sele-raya-belida" data-text="Sele Raya Belida" data-icon="fire"><i class="filter__group__item-icon sr sr-fire"></i><span class="filter__group__item-text">Sele Raya Belida</span></li>
+                        <li class="filter__group__item" data-value="sele-raya-energy" data-text="Sele Raya Energy" data-icon="lightning"><i class="filter__group__item-icon sr sr-lightning"></i><span class="filter__group__item-text">Sele Raya Energy</span></li>
+                        <li class="filter__group__item" data-value="sele-raya-sejati" data-text="Sele Raya Sejati" data-icon="factory"><i class="filter__group__item-icon sr sr-factory"></i><span class="filter__group__item-text">Sele Raya Sejati</span></li>
+                        <li class="filter__group__item" data-value="sele-raya-aryasatya" data-text="Sele Raya Aryasatya" data-icon="boat"><i class="filter__group__item-icon sr sr-boat"></i><span class="filter__group__item-text">Sele Raya Aryasatya</span></li>
+                        <li class="filter__group__item" data-value="sele-raya-mining" data-text="Sele Raya Mining" data-icon="sketch-logo"><i class="filter__group__item-icon sr sr-sketch-logo"></i><span class="filter__group__item-text">Sele Raya Mining</span></li>
+                        <li class="filter__group__item" data-value="sele-raya-agri" data-text="Sele Raya Agri" data-icon="grains"><i class="filter__group__item-icon sr sr-grains"></i><span class="filter__group__item-text">Sele Raya Agri</span></li>
+                        <li class="filter__group__item" data-value="amindo-wana-persada" data-text="Amindo Wana Persada" data-icon="clover"><i class="filter__group__item-icon sr sr-clover"></i><span class="filter__group__item-text">Amindo Wana Persada</span></li>
+                        <li class="filter__group__item" data-value="investidea-ventures" data-text="Investidea Ventures" data-icon="chart-line-up"><i class="filter__group__item-icon sr sr-chart-line-up"></i><span class="filter__group__item-text">Investidea Ventures</span></li>
+                        <li class="filter__group__item" data-value="sele-ingredients" data-text="Sele Ingredients" data-icon="lab"><i class="filter__group__item-icon sr sr-lab"></i><span class="filter__group__item-text">Sele Ingredients</span></li>
+                      </ul>
+                    </div>
+                    <div class="filter__group" data-input-id="category">
+                      <ul class="filter__group__list">
+                        <li class="filter__group__item is-selected" data-value="all-category" data-text="All Category" data-icon=""><span class="filter__group__item-text">All Category</span></li>
+                        <li class="filter__group__item" data-value="exploration" data-text="Exploration" data-icon=""><span class="filter__group__item-text">Exploration</span></li>
+                        <li class="filter__group__item" data-value="production" data-text="Production" data-icon=""><span class="filter__group__item-text">Production</span></li>
+                        <li class="filter__group__item" data-value="mining" data-text="Mining" data-icon=""><span class="filter__group__item-text">Mining</span></li>
+                        <li class="filter__group__item" data-value="hse" data-text="HSE" data-icon=""><span class="filter__group__item-text">HSE</span></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="filter__panel__actions"><button class="filter__panel__apply" type="submit">Apply</button></div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="career-list__body js-career-item">
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/fire-red.svg" alt="fire icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Raya Belida</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/fire-bg.svg" alt="fire background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="1">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/lightning-red.svg" alt="lightning icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Raya Energy</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/lightning-bg.svg" alt="lightning background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="2">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/factory-red.svg" alt="factory icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Raya Sejati</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/factory-bg.svg" alt="factory background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="3">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/boat-red.svg" alt="boat icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Raya Aryasatya</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/boat-bg.svg" alt="boat background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="4">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/sketch-logo-red.svg" alt="sketch logo icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Raya Mining</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/sketch-logo-bg.svg" alt="sketch logo background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="5">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/fire-red.svg" alt="fire icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Raya Belida</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/fire-bg.svg" alt="fire background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="6">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/grains-red.svg" alt="grains icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Raya Agri</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/grains-bg.svg" alt="grains background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="7">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/clover-red.svg" alt="clover icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Amindo Wana Persada</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/clover-bg.svg" alt="clover background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="8">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/chart-line-up-red.svg" alt="chart line up icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Investidea Ventures</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/chart-line-up-bg.svg" alt="chart line up background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="9">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+            <div class="career-list__item">
+              <div class="career-list__item-box">
+                <div class="career-list__item-left">
+                  <div class="career-list__item-icon">
+                    <img src="assets/img/icon/lab-red.svg" alt="lab icon">
+                  </div>
+                  <div class="career-list__item-content">
+                    <h5 class="career-list__item-title">Sele Ingredients</h5>
+                    <p class="career-list__item-desc">Senior Geologist</p>
+                  </div>
+                </div>
+                <div class="career-list__item-right">
+                  <div class="career-list__item-right__icon">
+                    <img src="assets/img/icon/lab-bg.svg" alt="lab background icon" />
+                  </div>
+                  <button class="career-list__item-btn" type="button" data-career-id="10">
+                    <i class="sr sr-caret-right"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!--.pagination-->
+          <div class="pagination">
+            <div class="pagination__inner">
+              <ul class="pagination__list">
+                <li class="pagination__item pagination__item--active">
+                  <a class="pagination__link" href="#">
+                    <span>1</span></a>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link" href="#">
+                    <span>2</span></a>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link" href="#">
+                    <span>3</span></a>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link" href="#">
+                    <span>...</span></a>
+                </li>
+                <li class="pagination__item">
+                  <a class="pagination__link" href="#">
+                    <span>10</span></a>
+                </li>
+              </ul>
+              <ul class="pagination__nav">
+                <li class="pagination__item pagination__item--previous pagination__item--disabled">
+                  <a class="pagination__link" href="#">
+                    <i class="sr sr-caret-left"></i></a>
+                </li>
+                <li class="pagination__item pagination__item--next">
+                  <a class="pagination__link" href="#">
+                    <i class="sr sr-caret-right"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- @name: Career Details-->
+    <div class="career-details">
+      <div class="container">
+        <div class="career-details__inner">
+          <div class="career-details__head">
+            <div class="career-details__img">
+              <img class="career-details__img-el" src="assets/img/icon/fire-red.svg" alt="Senior Geologist" />
+            </div>
+            <h2 class="career-details__title">Senior Geologist</h2>
+          </div>
+          <div class="career-details__body">
+            <div class="career-details__list">
+              <div class="career-details__item"><button class="career-details__item-trigger" type="button" aria-expanded="false">
+                  <div class="career-details__item-icon">
+                    <img class="career-details__item-icon-el" src="assets/img/icon/building-red.svg" alt="buildings icon" />
+                  </div><span class="career-details__item-title">Who We Are</span>
+                </button>
+                <div class="career-details__item-desc">
+                  <p>Sele Raya Belida is a subsidiary within a diversified energy group engaged in oil and gas exploration and production in Indonesia. We are committed to responsible energy development, operational excellence, and strict adherence to safety and environmental standards.</p>
+                  <p>With a strong focus on technical integrity and sustainable operations, we continuously strive to optimize our assets while contributing to national energy resilience.</p>
+                </div>
+              </div>
+              <div class="career-details__item"><button class="career-details__item-trigger" type="button" aria-expanded="false">
+                  <div class="career-details__item-icon">
+                    <img class="career-details__item-icon-el" src="assets/img/icon/book-red.svg" alt="book icon" />
+                  </div><span class="career-details__item-title">Role Description</span>
+                </button>
+                <div class="career-details__item-desc">
+                  <p>The Senior Geologist plays a critical role in supporting exploration and field development activities through comprehensive subsurface evaluation, geological modeling, and resource assessment.</p>
+                  <p>This position will work closely with geophysicists, reservoir engineers, and drilling teams to ensure accurate interpretation and successful execution of exploration and development programs.</p>
+                </div>
+              </div>
+              <div class="career-details__item"><button class="career-details__item-trigger" type="button" aria-expanded="false">
+                  <div class="career-details__item-icon">
+                    <img class="career-details__item-icon-el" src="assets/img/icon/user-circle-check-red.svg" alt="user circle check icon" />
+                  </div><span class="career-details__item-title">Key Responsibilities</span>
+                </button>
+                <div class="career-details__item-desc">
+                  <ul>
+                    <li>Lead geological interpretation of seismic, well log, and core data.</li>
+                    <li>Develop and update static geological models for exploration and development projects.</li>
+                    <li>Identify potential prospects and evaluate geological risks.</li>
+                    <li>Support drilling operations with real-time geological analysis and recommendations.</li>
+                    <li>Conduct resource estimation and contribute to reserve reporting.</li>
+                    <li>Prepare technical documentation and present findings to management and partners.</li>
+                    <li>Ensure compliance with HSE standards and regulatory requirements.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="career-details__item"><button class="career-details__item-trigger" type="button" aria-expanded="false">
+                  <div class="career-details__item-icon">
+                    <img class="career-details__item-icon-el" src="assets/img/icon/graduation-cap-red.svg" alt="graduation cap icon" />
+                  </div><span class="career-details__item-title">Prerequisites</span>
+                </button>
+                <div class="career-details__item-desc">
+                  <ul>
+                    <li>Bachelor’s or Master’s Degree in Geology.</li>
+                    <li>Minimum 7–10 years of experience in oil & gas exploration or development projects.</li>
+                    <li>Strong proficiency in geological modeling and interpretation software.</li>
+                    <li>Experience in reservoir characterization and resource estimation.</li>
+                    <li>Experience with seismic interpretation and well log analysis.</li>
+                    <li>Excellent communication and teamwork skills.</li>
+                    <li>Strong analytical, leadership, and communication skills.</li>
+                    <li>Willing to be assigned to field locations as required.</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="career-details__item"><button class="career-details__item-trigger" type="button" aria-expanded="false">
+                  <div class="career-details__item-icon">
+                    <img class="career-details__item-icon-el" src="assets/img/icon/gift-red.svg" alt="gift icon" />
+                  </div><span class="career-details__item-title">Rewards & Benefits</span>
+                </button>
+                <div class="career-details__item-desc">
+                  <ul>
+                    <li>Competitive remuneration aligned with industry standards.</li>
+                    <li>Comprehensive health insurance coverage.</li>
+                    <li>Performance-based incentives.</li>
+                    <li>Professional development and certification support.</li>
+                    <li>Structured career progression within the energy group.</li>
+                    <li>Rotation and site allowance (if applicable).</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="career-details__wr">
+              <div class="career-details__wr-box">
+                <div class="career-details__wr-item">
+                  <p class="career-details__wr-item-label">Businesses</p>
+                  <div class="career-details__wr-item__value">
+                    <div class="career-details__wr-item-icon">
+                      <img class="career-details__wr-item-icon-el" src="assets/img/icon/fire-red.svg" alt="fire icon" />
+                    </div>
+                    <h6 class="career-details__wr-item-title">Sele Raya Belida</h6>
+                  </div>
+                </div>
+                <div class="career-details__wr-item">
+                  <p class="career-details__wr-item-label">Type</p>
+                  <div class="career-details__wr-item__value">
+                    <div class="career-details__wr-item-icon">
+                      <img class="career-details__wr-item-icon-el" src="assets/img/icon/clock-countdown-red.svg" alt="clock countdown icon" />
+                    </div>
+                    <h6 class="career-details__wr-item-title">Permanent</h6>
+                  </div>
+                </div>
+                <div class="career-details__wr-item">
+                  <p class="career-details__wr-item-label">Location</p>
+                  <div class="career-details__wr-item__value">
+                    <div class="career-details__wr-item-icon">
+                      <img class="career-details__wr-item-icon-el" src="assets/img/icon/location-red.svg" alt="location icon" />
+                    </div>
+                    <h6 class="career-details__wr-item-title">Kalimantan</h6>
+                  </div>
+                </div>
+                <div class="career-details__wr-item">
+                  <p class="career-details__wr-item-label">Application Deadline</p>
+                  <div class="career-details__wr-item__value">
+                    <div class="career-details__wr-item-icon">
+                      <img class="career-details__wr-item-icon-el" src="assets/img/icon/calendar-red.svg" alt="calendar icon" />
+                    </div>
+                    <h6 class="career-details__wr-item-title">10 Feb 2024</h6>
+                  </div>
+                </div><button class="btn btn--reverse career-details__wr-button" type="button">
+                  <span class="btn__text">Apply Now</span></button>
+              </div>
+            </div>
+          </div><button class="career-details__button" type="button">
+            <i class="sr sr-close"></i></button>
+        </div>
+      </div>
+    </div>
+    <!-- @name: Career Form-->
+    <div class="career-form">
+      <div class="career-form__inner">
+        <div class="career-form__head">
+          <h6 class="career-form__title">Application Form</h6><button class="career-form__close js-career-form-close">
+            <i class="sr sr-close"></i></button>
+        </div>
+        <form class="career-form__form js-form-career" data-url="#" method="post">
+          <div class="career-form__row"><!--  @name: Form Control-->
+            <div class="form-control"><label class="form-control__label" for="name">Full Name *</label><input class="form-control__input" type="text" name="name" id="name" required="required" data-target="name_error" autocomplete="nope" />
+              <p class="form-control__alert" id="name_error" data-req="Please enter your full name"></p>
+            </div>
+          </div>
+          <div class="career-form__row"><!--  @name: Form Control-->
+            <div class="form-control"><label class="form-control__label" for="phone">Phone Number *</label><input class="form-control__input" type="tel" name="phone" id="phone" required="required" data-target="phone_error" autocomplete="off" />
+              <p class="form-control__alert" id="phone_error" data-req="Please enter your phone number" data-invalid="Invalid phone number format. Please check again." data-invalid-phone="Invalid phone number format. Please check again."></p>
+            </div>
+          </div>
+          <div class="career-form__row"><!--  @name: Form Control-->
+            <div class="form-control"><label class="form-control__label" for="email">Email Address *</label><input class="form-control__input" type="text" name="email" id="email" required="required" data-target="email_error" autocomplete="off" />
+              <p class="form-control__alert" id="email_error" data-req="Please enter your email address" data-invalid="Invalid email format. Please check again." data-invalid-phone="Invalid email format. Please check again."></p>
+            </div>
+          </div>
+          <div class="career-form__row"><!--  @name: Form Control-->
+            <div class="form-control form-control--file"><label class="form-control__label" for="resume">Resume/ CV *</label>
+              <div class="form-control__file-wrapper"><input class="form-control__input-file" type="file" name="resume" id="resume" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required="required" data-target="resume_error" data-invalid="Invalid file format. Please check again." style="display:none"><button class="form-control__file-btn" type="button" tabindex="0"><i class="form-control__file-btn-icon sr sr-link-simple"></i><span class="form-control__file-chosen">Choose file</span></button></div>
+              <p class="form-control__alert" id="resume_error" data-req="Please upload your resume" data-invalid="Invalid file format. Please check again." data-invalid-phone="Invalid file format. Please check again."></p>
+            </div>
+          </div>
+          <div class="career-form__row">
+            <button class="btn btn--reverse btn--icon" type="submit">
+              <span>Submit
+                <i class="sr sr-paper-plane-right"></i>
+              </span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!--.modal-success-->
+    <div class="modal-success js-modal-success">
+      <div class="modal-success__content">
+        <div class="modal-success__img">
+          <img class="modal-success__img__el" src="assets/img/dummy/modal-success.png" alt="Application Received" />
+        </div>
+        <h6 class="modal-success__title">Application Received</h6>
+        <p class="modal-success__desc">Your application has been submitted successfully. We will contact shortlisted candidates.</p>
+      </div>
+    </div>
 
   </div><!--footer-->
   <div class="footer">

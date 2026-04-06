@@ -52,6 +52,11 @@ var App = function () {
       _components.AwardsList.init();
       _components.BusinessesHSE.init();
       _components.BusinessesOverview.init();
+      _components.BusinessesPortofolio.init();
+      _components.BusinessesTeam.init();
+      _components.CareerDetails.init();
+      _components.CareerList.init();
+      _components.CareerForm.init();
 
       // --- templates
       _templates.Default.init();
@@ -80,7 +85,7 @@ var App = function () {
 // ---  run main js
 App.init();
 
-},{"../../components":28,"../../templates":30,"./utilities":8}],2:[function(require,module,exports){
+},{"../../components":33,"../../templates":35,"./utilities":8}],2:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1009,6 +1014,89 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+var _utilities = require("../../../_core/scripts/utilities");
+/* ------------------------------------------------------------------------------
+@name: Awards
+@description: Awards
+--------------------------------------------------------------------------------- */
+
+var BusinessesPortofolio = function () {
+  var SELECTOR = {
+    card: '.js-businesses-show-modal',
+    modal: '.js-businesses-modal',
+    modalType: '.js-businesses-modal-type',
+    modalTagline: '.js-businesses-modal-tagline',
+    modalLink: '.js-businesses-modal-link',
+    modalLogo: '.js-businesses-modal-logo',
+    modalImage: '.js-businesses-modal-img',
+    modalContent: '.js-businesses-modal-content',
+    modalClose: '.js-businesses-modal-close'
+  };
+  var hideModal = function hideModal() {
+    var $modal = $(SELECTOR.modal);
+    $modal.removeClass('is-active');
+
+    // Tunggu animasi selesai sebelum enable scroll
+    setTimeout(function () {
+      _utilities.Scrolllable.enable();
+    }, 300); // Sesuaikan dengan durasi CSS transition
+  };
+  var showModal = function showModal($card) {
+    var $modal = $(SELECTOR.modal);
+    if (!$modal.length || !$card.length) return;
+    var type = $card.attr('data-type');
+    var tagline = $card.attr('data-tagline');
+    var link = $card.attr('data-link');
+    var content = $card.attr('data-content');
+    var logo = $card.attr('data-logo');
+    var image = $card.attr('data-img');
+    $modal.find(SELECTOR.modalType).text(type);
+    $modal.find(SELECTOR.modalTagline).text(tagline);
+    $modal.find(SELECTOR.modalLink).attr('href', link);
+    $modal.find(SELECTOR.modalLink).find('.js-businesses-modal-link-text').text(link);
+    $modal.find(SELECTOR.modalContent).html(content);
+    $modal.find(SELECTOR.modalLogo).attr({
+      src: logo || '',
+      alt: type
+    });
+    $modal.find(SELECTOR.modalImage).attr({
+      src: image || '',
+      alt: type
+    });
+    $modal.addClass('is-active');
+    _utilities.Scrolllable.disable();
+  };
+  var handleShowModal = function handleShowModal() {
+    $(document).on('click', SELECTOR.card, function (e) {
+      var $card = $(e.currentTarget).closest(SELECTOR.card);
+      showModal($card);
+    }).on('click', SELECTOR.modalClose, function () {
+      hideModal();
+    }).on('keyup', function (e) {
+      if (e.key === 'Escape' || e.which === 27) {
+        hideModal();
+      }
+    });
+  };
+
+  // - init
+  var init = function init() {
+    if (!$(SELECTOR.card).length || !$(SELECTOR.modal).length) return;
+    handleShowModal();
+  };
+  return {
+    init: init
+  };
+}();
+var _default = exports.default = BusinessesPortofolio;
+
+},{"../../../_core/scripts/utilities":8}],19:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
 /* ------------------------------------------------------------------------------
 @name: BusinessesSection
 @description: BusinessesSection
@@ -1077,7 +1165,539 @@ var BusinessesSection = function () {
 }();
 var _default = exports.default = BusinessesSection;
 
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _WindowResize = _interopRequireDefault(require("../../../_core/scripts/utilities/WindowResize"));
+function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
+/* ------------------------------------------------------------------------------
+@name: BusinessesTeam
+@description: BusinessesTeam
+--------------------------------------------------------------------------------- */
+
+var BusinessesTeam = function () {
+  var $selector = $('.js-businesses-team-slider');
+  var $section = $selector.closest('.businesses-team');
+  var $btnPrev = $section.find('.js-businesses-team-prev');
+  var $btnNext = $section.find('.js-businesses-team-next');
+  var $dots = $section.find('.js-businesses-team-dots');
+  var $itemLength = $('.js-businesses-team-slider .businesses-team__item').length;
+  var updateNavState = function updateNavState(currentIndex, totalItems) {
+    if (!$btnPrev.length || !$btnNext.length) return;
+    var isFirst = currentIndex <= 0;
+    var isLast = currentIndex >= totalItems - 1;
+    $btnPrev.toggleClass('disabled', isFirst).prop('disabled', isFirst);
+    $btnNext.toggleClass('disabled', isLast).prop('disabled', isLast);
+  };
+  var renderDots = function renderDots(totalItems) {
+    if (!$dots.length) return;
+    if (totalItems <= 1) {
+      $dots.empty();
+      return;
+    }
+    var dotsHtml = Array.from({
+      length: totalItems
+    }, function (_, idx) {
+      return "<button class=\"businesses-team__dots__item js-businesses-team-dot\" type=\"button\" data-index=\"".concat(idx, "\" aria-label=\"Go to slide ").concat(idx + 1, "\"></button>");
+    }).join('');
+    $dots.html(dotsHtml);
+  };
+  var updateDotsState = function updateDotsState(currentIndex) {
+    if (!$dots.length) return;
+    $dots.find('.js-businesses-team-dot').removeClass('active').eq(currentIndex).addClass('active');
+  };
+  var parseEducation = function parseEducation(value) {
+    if (!value) return [];
+    try {
+      var parsed = JSON.parse(value);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return value.split('|').map(function (item) {
+        return item.trim();
+      }).filter(Boolean);
+    }
+  };
+  var renderTeamText = function renderTeamText($item) {
+    if (!$item || !$item.length) return;
+    var name = $item.attr('data-name') || '';
+    var username = $item.attr('data-username') || '';
+    var partnerContent = $item.attr('data-content-partner') || '';
+    var education = parseEducation($item.attr('data-education'));
+    var $wrapper = $selector.closest('.businesses-team__body').find('.businesses-team__text');
+    var $name = $wrapper.find('.businesses-team__name');
+    var $username = $wrapper.find('.businesses-team__username span');
+    var $partner = $wrapper.find('.businesses-team__desc');
+    var $education = $wrapper.find('.businesses-team__education');
+    $name.text(name);
+    $username.text(username);
+    $partner.html(partnerContent);
+    var educationHtml = education.map(function (item) {
+      return "<li class=\"businesses-team__education__item\">".concat(item, "</li>");
+    }).join('');
+    $education.html(educationHtml);
+  };
+  var updateTextByIndex = function updateTextByIndex(index) {
+    var $items = $selector.find('.businesses-team__item');
+    var $activeItem = $items.eq(index);
+    if (!$activeItem.length) return;
+    renderTeamText($activeItem);
+  };
+  var bindCarouselEvents = function bindCarouselEvents() {
+    $selector.off('initialized.owl.carousel changed.owl.carousel').on('initialized.owl.carousel', function () {
+      var carousel = $selector.data('owl.carousel');
+      if (!carousel) return;
+      var currentIndex = carousel.relative(carousel.current());
+      var totalItems = carousel._items ? carousel._items.length : $itemLength;
+      updateTextByIndex(currentIndex);
+      updateNavState(currentIndex, totalItems);
+      updateDotsState(currentIndex);
+    }).on('changed.owl.carousel', function (event) {
+      var carousel = $selector.data('owl.carousel');
+      if (!carousel || !event.property || event.property.name !== 'position') return;
+      var currentIndex = carousel.relative(event.property.value);
+      var totalItems = carousel._items ? carousel._items.length : $itemLength;
+      updateTextByIndex(currentIndex);
+      updateNavState(currentIndex, totalItems);
+      updateDotsState(currentIndex);
+    });
+  };
+  var bindCustomNav = function bindCustomNav() {
+    $btnPrev.off('click.businessesTeamNav').on('click.businessesTeamNav', function () {
+      if ($btnPrev.hasClass('disabled')) return;
+      $selector.trigger('prev.owl.carousel');
+    });
+    $btnNext.off('click.businessesTeamNav').on('click.businessesTeamNav', function () {
+      if ($btnNext.hasClass('disabled')) return;
+      $selector.trigger('next.owl.carousel');
+    });
+  };
+  var bindCustomDots = function bindCustomDots() {
+    $dots.off('click.businessesTeamDots').on('click.businessesTeamDots', '.js-businesses-team-dot', function (event) {
+      var $target = $(event.currentTarget);
+      var index = Number($target.attr('data-index'));
+      if (Number.isNaN(index)) return;
+      $selector.trigger('to.owl.carousel', [index, 1200, true]);
+    });
+  };
+
+  // init slider
+  var handleRunCarousel = function handleRunCarousel() {
+    updateTextByIndex(0);
+    if ($selector.hasClass('owl-carousel')) {
+      // destroy carousel
+      $selector.owlCarousel('destroy');
+    }
+    bindCarouselEvents();
+    bindCustomNav();
+    bindCustomDots();
+
+    // init carousel
+    if ($itemLength > 1) {
+      renderDots($itemLength);
+      updateDotsState(0);
+      updateNavState(0, $itemLength);
+
+      // --- init carousel
+      $selector.addClass('owl-carousel').owlCarousel({
+        items: 1,
+        startPosition: 0,
+        loop: false,
+        rewind: false,
+        autoWidth: true,
+        touchDrag: true,
+        mouseDrag: true,
+        pullDrag: true,
+        nav: false,
+        dots: true,
+        autoplay: false,
+        smartSpeed: 1200,
+        margin: 16,
+        responsive: {
+          0: {
+            rtl: false
+          },
+          992: {
+            rtl: true
+          }
+        }
+      });
+    } else {
+      $selector.addClass('businesses-team--single');
+      updateTextByIndex(0);
+      updateNavState(0, 1);
+      renderDots(1);
+    }
+  };
+
+  // init
+  var init = function init() {
+    if (!$selector.length) return;
+    var run = function run() {
+      _WindowResize.default.resize(handleRunCarousel);
+      handleRunCarousel();
+    };
+    if (document.readyState === 'complete') {
+      setTimeout(run, 300);
+    } else {
+      window.addEventListener('load', function () {
+        setTimeout(run, 300);
+      });
+    }
+  };
+  return {
+    init: init
+  };
+}();
+var _default = exports.default = BusinessesTeam;
+
+},{"../../../_core/scripts/utilities/WindowResize":6}],21:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _utilities = require("../../../_core/scripts/utilities");
+/* ------------------------------------------------------------------------------
+@name: Career Details
+@description: Career Details
+--------------------------------------------------------------------------------- */
+
+var CareerDetails = function () {
+  var accordionBreakpoint = 991.98;
+  var bodySelector = 'body';
+  var itemSelector = '.career-details__item';
+  var triggerSelector = '.career-details__item-trigger';
+  var descSelector = '.career-details__item-desc';
+  var closeSelector = '.career-details__button';
+  var applySelector = '.career-details__wr-button';
+  var detailsClass = 'show--career-details';
+  var formClass = 'show--career-form';
+  var closeDetails = function closeDetails() {
+    $(bodySelector).removeClass("".concat(detailsClass, " ").concat(formClass));
+    _utilities.Scrolllable.enable();
+  };
+  var showForm = function showForm() {
+    $(bodySelector).addClass(formClass);
+    _utilities.Scrolllable.disable();
+  };
+  var handleAccordion = function handleAccordion() {
+    if (!$('.career-details').length) return;
+    if (window.matchMedia("(max-width: ".concat(accordionBreakpoint, "px)")).matches) {
+      $(descSelector).each(function (_, element) {
+        var $desc = $(element);
+        if (!$desc.closest(itemSelector).hasClass('is-open')) {
+          $desc.stop(true, true).slideUp(0);
+        }
+      });
+      $(document).off('click.careerDetailsAccordion', triggerSelector).on('click.careerDetailsAccordion', triggerSelector, function () {
+        var $trigger = $(this);
+        var $item = $trigger.closest(itemSelector);
+        var $desc = $item.find(descSelector);
+        var isOpen = $item.hasClass('is-open');
+        if (isOpen) {
+          $item.removeClass('is-open');
+          $trigger.attr('aria-expanded', 'false');
+          $desc.stop(true, true).slideUp(300);
+          return;
+        }
+        $item.addClass('is-open');
+        $trigger.attr('aria-expanded', 'true');
+        $desc.stop(true, true).slideDown(300);
+      });
+      return;
+    }
+    $(document).off('click.careerDetailsAccordion', triggerSelector);
+    $(itemSelector).removeClass('is-open');
+    $(triggerSelector).attr('aria-expanded', 'true');
+    $(descSelector).stop(true, true).show();
+  };
+  var init = function init() {
+    if (!$('.career-details').length) return;
+    handleAccordion();
+    $(window).off('resize.careerDetailsAccordion').on('resize.careerDetailsAccordion', handleAccordion);
+    $(document).off('click.careerDetailsClose', closeSelector).on('click.careerDetailsClose', closeSelector, closeDetails).off('click.careerFormOpen', applySelector).on('click.careerFormOpen', applySelector, showForm).off('keyup.careerDetailsEsc').on('keyup.careerDetailsEsc', function (e) {
+      if (e.which !== 27) return;
+      if ($(bodySelector).hasClass(formClass)) {
+        $(bodySelector).removeClass(formClass);
+        _utilities.Scrolllable.disable();
+        return;
+      }
+      if ($(bodySelector).hasClass(detailsClass)) {
+        closeDetails();
+      }
+    });
+  };
+  return {
+    init: init
+  };
+}();
+var _default = exports.default = CareerDetails;
+
+},{"../../../_core/scripts/utilities":8}],22:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _utilities = require("../../../_core/scripts/utilities");
+/* ------------------------------------------------------------------------------
+@name: Career Form
+@description: Career Form
+--------------------------------------------------------------------------------- */
+
+// --- utilities
+
+var ElementSelector = [{
+  id: 'name',
+  validation: {
+    required: true
+  }
+}, {
+  id: 'phone',
+  validation: {
+    required: true,
+    phone: true
+  }
+}, {
+  id: 'email',
+  validation: {
+    required: true,
+    email: true
+  }
+}, {
+  id: 'resume',
+  validation: {
+    required: true
+  }
+}];
+var CareerForm = function () {
+  var $modal = $('.js-modal-success');
+  var $form = $('.js-form-career');
+  var bodySelector = 'body';
+  var closeSelector = '.js-career-form-close';
+  var SUBMIT_SELECTOR = "button[type='submit']";
+  var SUCCESS_MODAL_DELAY = 1500;
+  var successModalTimer = null;
+  var fileSelector = '#resume';
+  var detailsClass = 'show--career-details';
+  var formClass = 'show--career-form';
+  var hideForm = function hideForm() {
+    $(bodySelector).removeClass(formClass);
+    if ($(bodySelector).hasClass(detailsClass) || $modal.hasClass('is-visible')) {
+      _utilities.Scrolllable.disable();
+      return;
+    }
+    _utilities.Scrolllable.enable();
+  };
+  var validateFileInput = function validateFileInput() {
+    var _$input$get;
+    var $input = $form.find(fileSelector);
+    if (!$input.length) return true;
+    var files = (_$input$get = $input.get(0)) === null || _$input$get === void 0 ? void 0 : _$input$get.files;
+    var hasFile = !!(files && files.length);
+    var target = $input.attr('data-target');
+    var $alert = target ? $('#' + target) : $();
+    var $ctrl = $input.closest('.form-control');
+    if (!hasFile) {
+      $ctrl.addClass('error');
+      if ($alert.length) {
+        $alert.text($alert.attr('data-req')).addClass('error');
+      }
+      return false;
+    }
+    $ctrl.removeClass('error').addClass('focused');
+    if ($alert.length) {
+      $alert.removeClass('error').text('');
+    }
+    return true;
+  };
+  var clearSuccessModalTimer = function clearSuccessModalTimer() {
+    if (successModalTimer) {
+      clearTimeout(successModalTimer);
+      successModalTimer = null;
+    }
+  };
+  var resetFormState = function resetFormState() {
+    var _$form$get;
+    (_$form$get = $form.get(0)) === null || _$form$get === void 0 || _$form$get.reset();
+    ElementSelector.forEach(function (_ref) {
+      var id = _ref.id;
+      var $input = $('#' + id);
+      var target = $input.attr('data-target');
+      $input.removeClass('error');
+      $input.closest('.form-control').removeClass('error focused show-select');
+      if (target) {
+        $('#' + target).removeClass('error').text('');
+      }
+    });
+    $form.find('.js-remove-input').remove();
+    $form.find('.form-control__file-chosen').text('Choose file');
+  };
+  var scheduleHideModalSuccess = function scheduleHideModalSuccess() {
+    clearSuccessModalTimer();
+    successModalTimer = setTimeout(function () {
+      hideModalSuccess();
+    }, SUCCESS_MODAL_DELAY);
+  };
+
+  // - showModalSuccess
+  var showModalSuccess = function showModalSuccess() {
+    clearSuccessModalTimer();
+    $modal.addClass('is-visible');
+    _utilities.Scrolllable.disable();
+  };
+
+  // - hideModalSuccess
+  var hideModalSuccess = function hideModalSuccess() {
+    clearSuccessModalTimer();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    $modal.removeClass('is-visible');
+    resetFormState();
+    if ($(bodySelector).hasClass(detailsClass) || $(bodySelector).hasClass(formClass)) {
+      _utilities.Scrolllable.disable();
+      return;
+    }
+    _utilities.Scrolllable.enable();
+  };
+
+  // - handleModalClose
+  var handleModalClose = function handleModalClose() {
+    // Close modal when clicking outside modal content
+    $modal.on('click', function () {
+      hideModalSuccess();
+    });
+
+    // Prevent modal from closing when clicking inside the content
+    $modal.find('.modal-success__content').on('click', function (e) {
+      e.stopPropagation();
+    });
+  };
+  var handleFormVisibility = function handleFormVisibility() {
+    $(document).off('click.careerFormClose', closeSelector).on('click.careerFormClose', closeSelector, hideForm).off('keyup.careerFormEsc').on('keyup.careerFormEsc', function (e) {
+      if (e.which !== 27 || !$(bodySelector).hasClass(formClass)) return;
+      hideForm();
+    });
+  };
+
+  // - handleValidationAndSubmit
+  var handleValidationAndSubmit = function handleValidationAndSubmit() {
+    $form.find(SUBMIT_SELECTOR).on('click', function (e) {
+      e.preventDefault();
+      ElementSelector.forEach(function (_ref2) {
+        var id = _ref2.id;
+        return $('#' + id).blur();
+      });
+      var hasValidFile = validateFileInput();
+      if (hasValidFile && !$form.find('.error').length) {
+        handleSubmitSuccess();
+      }
+    });
+    $form.find(fileSelector).on('change', function () {
+      validateFileInput();
+    });
+  };
+
+  // - handleSubmitSuccess
+  var handleSubmitSuccess = function handleSubmitSuccess() {
+    var formData = {};
+    var submitUrl = $form.attr('data-url');
+    $.each(ElementSelector, function (_, el) {
+      formData[el.id] = $('#' + el.id).val();
+    });
+
+    // Bersihkan error (jika ada)
+    ElementSelector.forEach(function (_ref3) {
+      var id = _ref3.id;
+      $('#' + id).removeClass('error');
+      $('#' + id + '_error').text('');
+    });
+    if (!submitUrl || submitUrl === '#') {
+      showModalSuccess();
+      scheduleHideModalSuccess();
+      return;
+    }
+    $.ajax({
+      url: submitUrl,
+      method: 'POST',
+      data: formData,
+      dataType: 'json',
+      success: function success(response) {
+        if (response.status === 'success') {
+          showModalSuccess();
+          scheduleHideModalSuccess();
+          // Optionally reset label states
+        } else if (response.errors) {
+          // Show validation errors
+          $.each(response.errors, function (key, msg) {
+            $('#' + key + '_error').text(msg);
+          });
+        } else {
+          alert(response.message || 'Submission failed.');
+        }
+      },
+      error: function error() {
+        alert('An error occurred. Please try again.');
+      }
+    });
+  };
+
+  // - init
+  var init = function init() {
+    if (!$form.length) return;
+    _utilities.Validation.config(['input', 'change', 'blur'], ElementSelector);
+    handleValidationAndSubmit();
+    handleModalClose();
+    handleFormVisibility();
+  };
+  return {
+    init: init
+  };
+}();
+var _default = exports.default = CareerForm;
+
+},{"../../../_core/scripts/utilities":8}],23:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _utilities = require("../../../_core/scripts/utilities");
+/* ------------------------------------------------------------------------------
+@name: Career List
+@description: Career List
+--------------------------------------------------------------------------------- */
+
+var CareerList = function () {
+  var bodySelector = 'body';
+  var itemTriggerSelector = '.career-list__item-box';
+  var detailsClass = 'show--career-details';
+  var handleShowModal = function handleShowModal() {
+    if (!$('.career-list').length || !$('.career-details').length) return;
+    $(document).off('click.careerDetailsOpen', itemTriggerSelector).on('click.careerDetailsOpen', itemTriggerSelector, function () {
+      $(bodySelector).addClass(detailsClass);
+      _utilities.Scrolllable.disable();
+    });
+  };
+  var init = function init() {
+    handleShowModal();
+  };
+  return {
+    init: init
+  };
+}();
+var _default = exports.default = CareerList;
+
+},{"../../../_core/scripts/utilities":8}],24:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1145,7 +1765,7 @@ var ContactUSAccordion = function () {
 }();
 var _default = exports.default = ContactUSAccordion;
 
-},{}],20:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1349,7 +1969,7 @@ var ContactUsForm = function () {
 }();
 var _default = exports.default = ContactUsForm;
 
-},{"../../../_core/scripts/utilities":8}],21:[function(require,module,exports){
+},{"../../../_core/scripts/utilities":8}],26:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1473,7 +2093,7 @@ var CsrSection = function () {
 }();
 var _default = exports.default = CsrSection;
 
-},{}],22:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1592,7 +2212,7 @@ var Footer = function () {
 }();
 var _default = exports.default = Footer;
 
-},{}],23:[function(require,module,exports){
+},{}],28:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1756,7 +2376,7 @@ var Header = function () {
 }();
 var _default = exports.default = Header;
 
-},{"../../_core/scripts/utilities/Scrolllable":3,"../../_core/scripts/utilities/WindowResize":6,"../../_core/scripts/utilities/WindowScroll":7}],24:[function(require,module,exports){
+},{"../../_core/scripts/utilities/Scrolllable":3,"../../_core/scripts/utilities/WindowResize":6,"../../_core/scripts/utilities/WindowScroll":7}],29:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1871,7 +2491,7 @@ var HeroBanner = function () {
 }();
 var _default = exports.default = HeroBanner;
 
-},{}],25:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2020,7 +2640,7 @@ var MilestonesSection = function () {
 }();
 var _default = exports.default = MilestonesSection;
 
-},{}],26:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2079,7 +2699,7 @@ var ContentTransition = function () {
     // - Not Found
     '.not-found__inner',
     // - Businesses
-    '.businesses-key__head', '.businesses-key__body', '.businesses-ovw__img', '.businesses-ovw__text', '.businesses-why__head', '.businesses-why__body', '.businesses-about__head', '.businesses-about__body'].concat(_toConsumableArray($('.businesses-value--agri').length > 0 || $('.businesses-value--amindo-wana-persada').length > 0 || $('.businesses-value--investidea-ventures').length > 0 ? ['.businesses-value__content', '.businesses-value__list', '.businesses-value__img'] : ['.businesses-value__img', '.businesses-value__head', '.businesses-value__body']), ['.businesses-vm__list',
+    '.businesses-key__head', '.businesses-key__body', '.businesses-ovw__img', '.businesses-ovw__text', '.businesses-why__head', '.businesses-why__body', '.businesses-about__head', '.businesses-about__body'].concat(_toConsumableArray($('.businesses-value--agri').length > 0 || $('.businesses-value--amindo-wana-persada').length > 0 || $('.businesses-value--investidea-ventures').length > 0 || $('.businesses-value--sele-ingredients').length > 0 ? ['.businesses-value__content', '.businesses-value__list', '.businesses-value__img'] : ['.businesses-value__img', '.businesses-value__head', '.businesses-value__body']), ['.businesses-vm__list',
     // - Belida
     '.belida-core__head', '.belida-core__body',
     // - Sejati
@@ -2089,11 +2709,17 @@ var ContentTransition = function () {
     // - Mining Why
     '.mining-why__head', '.mining-why__body',
     // - Career
-    '.career-mosaic__item', '.career-mosaic-subtitle', '.career-mosaic-title', '.career-cp__media', '.career-cp__subtitle', '.career-cp__title', '.career-cp__desc', '.career-cp__item',
+    '.career-mosaic__item', '.career-mosaic-subtitle', '.career-mosaic-title', '.career-cp__media', '.career-cp__subtitle', '.career-cp__title', '.career-cp__desc', '.career-cp__item', '.career-list__title', '.career-list__empty-img', '.career-list__empty-title', '.career-list__empty-desc', '.career-list__item',
     // - Businesses HSE
     '.businesses-hse__head', '.businesses-hse__body',
     // - Under Construction
-    '.under-construction__inner']);
+    '.under-construction__inner',
+    // - Sele Principals
+    '.businesses-principal__head', '.businesses-principal__body',
+    // - Sele Portofolio
+    '.businesses-portofolio__head', '.businesses-portofolio__body',
+    // - Sele Team
+    '.businesses-team__head', '.businesses-team__body']);
     $.each(contentList, function (idx, el) {
       $(el).addClass('content-transition');
     });
@@ -2198,7 +2824,7 @@ var ContentTransition = function () {
 }();
 var _default = exports.default = ContentTransition;
 
-},{"../../../_core/scripts/utilities/WindowResize":6,"../../../_core/scripts/utilities/WindowScroll":7}],27:[function(require,module,exports){
+},{"../../../_core/scripts/utilities/WindowResize":6,"../../../_core/scripts/utilities/WindowScroll":7}],32:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2217,7 +2843,6 @@ var FormControl = function () {
   // -  Selectors & class helpers
   var CONTROL = '.form-control';
   var INPUT = '.form-control__input';
-  var CLEAR_BTN = 'js-remove-input';
   var FOCUSED_CLASS = 'focused';
   var SELECT_CLASS = 'show-select';
   var SELECT_BTN = '.form-control__select__btn';
@@ -2230,18 +2855,33 @@ var FormControl = function () {
   var GROUPED_CLOSE = '.filter__panel__close';
   var GROUPED_APPLY = '.filter__panel__apply';
   var GROUPED_ITEM = '.filter__group__item';
+  var renderSelectButtonContent = function renderSelectButtonContent($btn, text) {
+    var icon = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+    var safeText = text || '';
+    if (icon) {
+      $btn.html("\n        <i class=\"form-control__select__btn-icon sr sr-".concat(icon, "\"></i>\n        <span class=\"form-control__select__btn-text\">").concat(safeText, "</span>\n      "));
+      return;
+    }
+    $btn.html("<span class=\"form-control__select__btn-text\">".concat(safeText, "</span>"));
+  };
   $(function () {
     // ini memastikan semua event di bawah terpasang setelah DOM siap
     $(document).on('click', '.form-control__file-btn', function (e) {
-      console.log('Custom file button clicked!');
       e.preventDefault();
       var $inputFile = $(this).closest('.form-control__file-wrapper').find('.form-control__input-file');
       $inputFile.click();
     });
     $(document).on('change', '.form-control__input-file', function (e) {
       var file = this.files[0];
+      var $input = $(this);
+      var $ctrl = $input.closest(CONTROL);
+      var $alert = $('#' + $input.attr('data-target'));
       var $chosen = $(this).closest('.form-control__file-wrapper').find('.form-control__file-chosen');
-      $chosen.text(file ? file.name : '');
+      $chosen.text(file ? file.name : 'Choose file');
+      if (file) {
+        $ctrl.removeClass('error').addClass(FOCUSED_CLASS);
+        $alert.removeClass('error').text('');
+      }
     });
   });
 
@@ -2262,31 +2902,24 @@ var FormControl = function () {
     if (state) $ctrl.addClass(FOCUSED_CLASS);
   };
 
-  // - handleUpdateClear
-  var handleUpdateClear = function handleUpdateClear($input) {
-    if ($input.attr('data-ignore-clear') === 'true') {
-      $input.removeAttr('data-ignore-clear');
-      return;
-    }
-    var $ctrl = $input.closest(CONTROL);
-    $ctrl.find(".".concat(CLEAR_BTN)).remove();
-    if ($input.val()) {
-      $ctrl.append("\n      <button type=\"button\" class=\"form-control__icon form-control__icon--after ".concat(CLEAR_BTN, "\">\n        <i class=\"fi fi-x-circle\"></i>\n      </button>\n    "));
-    }
-  };
-
   // - handleSelectButtonLabel
   var handleSelectButtonLabel = function handleSelectButtonLabel($ctrl) {
     var $btn = $ctrl.find(SELECT_BTN);
     var mobileLabel = $btn.attr('data-mobile-label');
     var defaultLabel = $btn.attr('data-default-label');
-    var hasValue = !!$ctrl.find(INPUT).val();
+    var value = $ctrl.find(INPUT).val();
+    var hasValue = !!value;
+    var $selectedItem = $ctrl.find("".concat(SELECT_ITEM, "[data-value=\"").concat(value, "\"]")).first();
     if ($(window).width() < 768 && mobileLabel) {
-      $btn.text(mobileLabel);
+      renderSelectButtonContent($btn, mobileLabel);
+      return;
+    }
+    if (hasValue && $selectedItem.length) {
+      renderSelectButtonContent($btn, $selectedItem.attr('data-text') || $selectedItem.text().trim(), $selectedItem.attr('data-icon'));
       return;
     }
     if (!hasValue && defaultLabel) {
-      $btn.text(defaultLabel);
+      renderSelectButtonContent($btn, defaultLabel);
     }
   };
 
@@ -2303,7 +2936,8 @@ var FormControl = function () {
   // - handleSelectItem
   var handleSelectItem = function handleSelectItem($item) {
     var value = $item.attr('data-value');
-    var text = $item.text();
+    var text = $item.attr('data-text') || $item.text().trim();
+    var icon = $item.attr('data-icon');
     var $ctrl = $item.closest(CONTROL);
     var $input = $ctrl.find(INPUT);
     var $btn = $ctrl.find(SELECT_BTN);
@@ -2312,7 +2946,7 @@ var FormControl = function () {
     // -- set value
     $input.attr('data-ignore-clear', 'true');
     $input.val(value).trigger('input');
-    $btn.text(text);
+    renderSelectButtonContent($btn, text, icon);
 
     // -- set class
     $ctrl.removeClass(SELECT_CLASS);
@@ -2373,6 +3007,7 @@ var FormControl = function () {
       var inputId = $group.attr('data-input-id');
       var value = $item.attr('data-value');
       var text = $item.attr('data-text');
+      var icon = $item.attr('data-icon');
       var $filter = $item.closest('.filter');
       var $input = $filter.find("#".concat(inputId));
       var $ctrl = $input.closest(CONTROL);
@@ -2380,7 +3015,7 @@ var FormControl = function () {
       if (!$input.length) return;
       $input.attr('data-ignore-clear', 'true');
       $input.val(value).trigger('input');
-      $btn.text(text);
+      renderSelectButtonContent($btn, text, icon);
       $ctrl.find(SELECT_ITEM).removeClass(SELECTED_ITEM);
       $ctrl.find("".concat(SELECT_ITEM, "[data-value=\"").concat(value, "\"]")).addClass(SELECTED_ITEM);
       $group.find(GROUPED_ITEM).removeClass('is-selected');
@@ -2396,17 +3031,10 @@ var FormControl = function () {
         if (isEmpty || isInvalid) {
           $this.removeClass(FOCUSED_CLASS);
           $this.removeClass(SELECT_CLASS);
-          $this.find(".".concat(CLEAR_BTN)).remove();
         } else {
           $this.removeClass(SELECT_CLASS);
         }
       });
-    })
-
-    // Input ketik (termasuk filter select)
-    .on('input', INPUT, function (e) {
-      var $this = $(e.currentTarget);
-      handleUpdateClear($this);
     })
 
     // Keyup Esc to hide select
@@ -2449,14 +3077,6 @@ var FormControl = function () {
       e.stopPropagation();
     })
 
-    // Tombol clear
-    .on('click', ".".concat(CLEAR_BTN), function (e) {
-      var $this = $(e.currentTarget);
-      var $input = $this.siblings(INPUT);
-      $input.val('').trigger('input').focus();
-      e.stopPropagation();
-    })
-
     // Toggle select
     .on('click', '.form-control__select__btn', function (e) {
       var $btn = $(e.currentTarget);
@@ -2490,7 +3110,7 @@ var FormControl = function () {
 }();
 var _default = exports.default = FormControl;
 
-},{"../../../_core/scripts/utilities":8}],28:[function(require,module,exports){
+},{"../../../_core/scripts/utilities":8}],33:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2532,10 +3152,40 @@ Object.defineProperty(exports, "BusinessesOverview", {
     return _BusinessesOverview.default;
   }
 });
+Object.defineProperty(exports, "BusinessesPortofolio", {
+  enumerable: true,
+  get: function get() {
+    return _BusinessesPortofolio.default;
+  }
+});
 Object.defineProperty(exports, "BusinessesSection", {
   enumerable: true,
   get: function get() {
     return _BusinessesSection.default;
+  }
+});
+Object.defineProperty(exports, "BusinessesTeam", {
+  enumerable: true,
+  get: function get() {
+    return _BusinessesTeam.default;
+  }
+});
+Object.defineProperty(exports, "CareerDetails", {
+  enumerable: true,
+  get: function get() {
+    return _CareerDetails.default;
+  }
+});
+Object.defineProperty(exports, "CareerForm", {
+  enumerable: true,
+  get: function get() {
+    return _CareerForm.default;
+  }
+});
+Object.defineProperty(exports, "CareerList", {
+  enumerable: true,
+  get: function get() {
+    return _CareerList.default;
   }
 });
 Object.defineProperty(exports, "ContactUsAccordion", {
@@ -2608,9 +3258,14 @@ var _ContactUsAccordion = _interopRequireDefault(require("./ContactUs/ContactUsA
 var _AwardsList = _interopRequireDefault(require("./Awards/AwardsList"));
 var _BusinessesHSE = _interopRequireDefault(require("./Businesses/BusinessesHSE"));
 var _BusinessesOverview = _interopRequireDefault(require("./Businesses/BusinessesOverview"));
+var _BusinessesPortofolio = _interopRequireDefault(require("./Businesses/BusinessesPortofolio"));
+var _BusinessesTeam = _interopRequireDefault(require("./Businesses/BusinessesTeam"));
+var _CareerDetails = _interopRequireDefault(require("./Career/CareerDetails"));
+var _CareerList = _interopRequireDefault(require("./Career/CareerList"));
+var _CareerForm = _interopRequireDefault(require("./Career/CareerForm"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 
-},{"./AboutUs/AboutHighlight":12,"./AboutUs/AboutUsSection":13,"./Awards/AwardsList":14,"./Awards/AwardsSection":15,"./Businesses/BusinessesHSE":16,"./Businesses/BusinessesOverview":17,"./Businesses/BusinessesSection":18,"./ContactUs/ContactUsAccordion":19,"./ContactUs/ContactUsForm":20,"./Csr/CsrSection":21,"./Footer":22,"./Header":23,"./Herobanner":24,"./Milestones/MilestonesSection":25,"./_Elements/ContentTransition":26,"./_Elements/FormControl":27}],29:[function(require,module,exports){
+},{"./AboutUs/AboutHighlight":12,"./AboutUs/AboutUsSection":13,"./Awards/AwardsList":14,"./Awards/AwardsSection":15,"./Businesses/BusinessesHSE":16,"./Businesses/BusinessesOverview":17,"./Businesses/BusinessesPortofolio":18,"./Businesses/BusinessesSection":19,"./Businesses/BusinessesTeam":20,"./Career/CareerDetails":21,"./Career/CareerForm":22,"./Career/CareerList":23,"./ContactUs/ContactUsAccordion":24,"./ContactUs/ContactUsForm":25,"./Csr/CsrSection":26,"./Footer":27,"./Header":28,"./Herobanner":29,"./Milestones/MilestonesSection":30,"./_Elements/ContentTransition":31,"./_Elements/FormControl":32}],34:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2638,7 +3293,7 @@ var Default = function () {
 }();
 var _default = exports.default = Default;
 
-},{}],30:[function(require,module,exports){
+},{}],35:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2653,6 +3308,6 @@ Object.defineProperty(exports, "Default", {
 var _Default = _interopRequireDefault(require("./Default"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
 
-},{"./Default":29}]},{},[1])
+},{"./Default":34}]},{},[1])
 
 //# sourceMappingURL=maps/app.js.map
