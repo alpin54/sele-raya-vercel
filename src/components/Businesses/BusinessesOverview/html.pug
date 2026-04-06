@@ -1,0 +1,55 @@
+//-------------------------------------------------------------------------------
+  @name: businesses-ovw
+  -------------------------------------------------------------------------------//
+
+//businesses-ovw
+.businesses-ovw(class=data.modifier ? `businesses-ovw--${data.modifier} businesses-ovw--${page}` : `businesses-ovw--${page}`)
+  .container
+    if data.modifier === 'commitment'
+      .businesses-ovw__head
+        if data.title
+          .businesses-ovw__title= data.title
+        if data.subtitle
+          .businesses-ovw__subtitle= data.subtitle
+    .businesses-ovw__inner
+      .businesses-ovw__img
+        ='\n'
+        img.businesses-ovw__img__el(src=data.img alt=data.title)/
+      .businesses-ovw__text
+        if data.modifier !== 'commitment'
+          if data.label
+            p.businesses-ovw__label= data.label
+          if data.title
+            h2.businesses-ovw__title= data.title
+        if data.desc
+          .businesses-ovw__desc!= data.desc
+        if data.list
+          .businesses-ovw__list
+            each item in data.list
+              .businesses-ovw__item
+                .businesses-ovw__item__icon
+                  img.businesses-ovw__item__icon__el(src=item.img alt=item.label)/
+                .businesses-ovw__item__text
+                  h3.businesses-ovw__item__label= item.label
+                  .businesses-ovw__item__desc!= item.desc
+        if data.accordion
+          .businesses-ovw__acc.js-businesses-ovw-acc
+            each item in data.accordion
+              .businesses-ovw__acc__item
+                .businesses-ovw__acc__head
+                  h3.businesses-ovw__acc__title
+                    i(class=`businesses-ovw__acc__icon sr sr-${item.icon}`)
+                    span= item.title
+                    i.sr.sr-caret-down
+                .businesses-ovw__acc__body
+                  p.businesses-ovw__acc__desc= item.desc
+        if data.numbers
+          .businesses-ovw__number
+            each item in data.numbers
+              .businesses-ovw__number__item
+                h3.businesses-ovw__number__num= item.number
+                .businesses-ovw__number__info
+                  p.businesses-ovw__number__type= item.type
+                  p.businesses-ovw__number__detail= item.detail
+
+='\n'

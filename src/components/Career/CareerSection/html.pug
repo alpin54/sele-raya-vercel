@@ -1,0 +1,38 @@
+//-------------------------------------------------------------------------------
+  @name: Career Section
+  -------------------------------------------------------------------------------//
+
+// Career Section
+.career-section
+  .career-section__inner
+    .career-section__img
+      ='\n'
+      img.career-section__img__el.desktop(src='assets/img/dummy/'+data.imgDekstop, alt=data.title)/
+      ='\n'
+      img.career-section__img__el.mobile(src='assets/img/dummy/'+data.imgMobile, alt=data.title)/
+    .career-section__content
+      .container
+        .career-section__content__box
+          .career-section__content__wrapp
+            h6.career-section__subtitle
+              | !{data.subtitle}
+            h2.career-section__title
+              | !{data.title}
+            p.career-section__desc
+              | !{data.desc}
+            .career-section__stats
+              each stat in data.stats
+                .career-section__stat
+                  if stat.icon
+                    ='\n'
+                    span.career-section__stat-icon
+                      ='\n'
+                      img(src='assets/img/icon/'+stat.icon, alt=stat.label)
+                  p.career-section__stat-label #{stat.label}
+          ='\n'
+          a.btn.btn--reverse.btn--icon(href='#')
+            ='\n'
+            span.btn__text
+              | Join Our Team
+              i.sr.sr-caret-right
+  ='\n'

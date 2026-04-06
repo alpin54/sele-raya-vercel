@@ -1,0 +1,24 @@
+//-------------------------------------------------------------------------------
+  @name: businesses Item
+  -------------------------------------------------------------------------------//
+
+//businesses-item
+.businesses__item
+  .businesses__box
+    ='\n'
+    a.businesses__link(href='#')
+    .businesses__img
+      ='\n'
+      img.businesses__img__el(src='assets/img/dummy/'+data.img alt=data.title)/
+    .businesses__content
+      .businesses__icon
+        ='\n'
+        img.businesses__icon__el(src='assets/img/icon/'+ data.icon, alt=data.title)/
+      .businesses__text
+        h4.businesses__text__title
+          | !{data.title}
+        p.businesses__text__desc
+          | !{data.desc}
+
+
+='\n'

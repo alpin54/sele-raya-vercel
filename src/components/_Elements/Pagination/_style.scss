@@ -1,0 +1,104 @@
+/* ==========================================================================
+   Pagination
+   ========================================================================== */
+
+.pagination {
+  $pg: &;
+  text-align: center;
+  margin-top: 24px;
+  @include content-transition;
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__list,
+  &__nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+  }
+  &__nav {
+    margin-left: 16px;
+  }
+  &__item {
+    margin-right: 10px;
+    @include x-small {
+      margin-right: 8px;
+    }
+    &--active {
+      #{$pg}__link {
+        color: color(primary, 5);
+        border-color: color(primary, 5);
+      }
+    }
+    &:hover:not(.pagination__item--disabled) {
+      #{$pg}__link {
+        color: color(primary, 5);
+      }
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+    &--disabled {
+      #{$pg}__link {
+        border-color: color(neutral, 3);
+        color: color(neutral, 4);
+      }
+      &#{$pg}__item--previous,
+      &#{$pg}__item--next {
+        #{$pg}__link {
+          background-color: color(neutral, 2);
+        }
+      }
+    }
+    &#{$pg}__item--next {
+      #{$pg}__link {
+        background-color: color(primary, 5);
+        color: color(neutral, 50);
+      }
+      &:hover {
+        #{$pg}__link {
+          background-color: color(primary, 6);
+          color: color(neutral, 50);
+        }
+      }
+    }
+  }
+  &__link {
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: color(neutral, 50);
+    @include font-size(buttonMedium);
+    width: 36px;
+    height: 36px;
+    border: solid 1px transparent;
+    color: color(neutral, 6);
+    transition: all 0.35s ease;
+    @include retina {
+      width: 26px;
+      height: 26px;
+      @include font-size(buttonSmall);
+      border-radius: 6px;
+    }
+    i,
+    span {
+      line-height: 1;
+    }
+    span {
+      padding-bottom: 4px;
+      transform: translateY(2px);
+      @include retina {
+        padding-bottom: 2px;
+      }
+      @include small {
+        transform: translateY(1px);
+      }
+    }
+  }
+}

@@ -1,0 +1,45 @@
+/* ==========================================================================
+   Awards
+   ========================================================================== */
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  @include content-transition;
+  &__text {
+    flex: 1;
+    max-width: 720px;
+  }
+  &__subtitle {
+    @include font-size(h6);
+    color: color(primary, 5);
+    margin-bottom: 12px;
+    font-weight: fw(medium);
+    @include small {
+      @include font-size(body);
+      margin-bottom: 8px;
+    }
+  }
+  &__title {
+    @include font-size(h2);
+    margin: 0;
+    font-weight: fw(bold);
+    color: color(neutral, 9);
+    @include medium {
+      @include font-size(h3);
+    }
+    @include small {
+      @include font-size(h4);
+    }
+  }
+  .btn {
+    @include x-small {
+      border: 0;
+      background-color: transparent;
+      &::before, &::after {
+        display: none;
+      }
+    }
+  }
+
+}

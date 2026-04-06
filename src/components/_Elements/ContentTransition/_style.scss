@@ -1,0 +1,50 @@
+/* ==========================================================================
+   Content Transition
+   ========================================================================== */
+
+@mixin fade-in-loaded($direction: bottom) {
+  transition: opacity 0.75s cubic-bezier(0, 0, 0.5, 1) 150ms,
+    transform 0.75s cubic-bezier(0, 0, 0.5, 1) 150ms;
+  .main-site--hide & {
+    opacity: 0;
+    visibility: hidden;
+    @if $direction == bottom {
+      transform: translateY(16px);
+    }
+    @if $direction == top {
+      transform: translateY(-16px);
+    }
+    @if $direction == left {
+      transform: translateX(-16px);
+    }
+    @if $direction == right {
+      transform: translateX(16px);
+    }
+    @if $direction == zoom-out {
+      transform: scale(1.05);
+    }
+  }
+}
+
+@mixin content-transition($effect: bottom, $duration: 500ms) {
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  @if $effect == bottom {
+    transform: translateY(24px);
+    transition: transform $duration cubic-bezier(0, 0, 0.5, 1),
+      opacity $duration cubic-bezier(0, 0, 0.5, 1);
+  }
+  @if $effect == zoom-out {
+    transform: scale(1.2);
+    transition: transform 15s cubic-bezier(0, 0, 0.5, 1),
+      opacity 500ms cubic-bezier(0, 0, 0.5, 1);
+  }
+  &.visible {
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition-delay: 200ms;
+  }
+}

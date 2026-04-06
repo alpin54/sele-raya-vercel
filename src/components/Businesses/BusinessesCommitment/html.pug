@@ -1,0 +1,15 @@
+//-------------------------------------------------------------------------------
+  @name: Businesses Commitment
+  -------------------------------------------------------------------------------//
+
+//businesses-commit
+.businesses-commit(class=`businesses-commit--${page}`)
+  .businesses-commit__img
+    ='\n'
+    img.businesses-commit__img__el(src=data.img alt=data.title)/
+  .container
+    .businesses-commit__text
+      h2.businesses-commit__title= data.title
+      .businesses-commit__desc!= data.desc
+
+='\n'

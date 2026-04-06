@@ -1,0 +1,28 @@
+//-------------------------------------------------------------------------------
+  @name: Home
+  -------------------------------------------------------------------------------//
+
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'PT Sele Raya Persada';
+    page = 'amindo-wana-persada'
+
+//- Body
+block siteContent
+  //- Amindo Wana Persada Banner
+  include businesses/amindo-wana-persada/AmindoWanaPersadaBanner.pug
+
+  //- Amindo Wana Persada Overview
+  include businesses/amindo-wana-persada/AmindoWanaPersadaOverview.pug
+
+  //- Amindo Wana Persada Value
+  include businesses/amindo-wana-persada/AmindoWanaPersadaValue.pug
+
+  //- Amindo Wana Persada HSE
+  include businesses/amindo-wana-persada/AmindoWanaPersadaHSE.pug
+
+  //- Amindo Wana Persada Social
+  include businesses/amindo-wana-persada/AmindoWanaPersadaOverviewSocial.pug

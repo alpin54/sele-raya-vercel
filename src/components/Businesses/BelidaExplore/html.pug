@@ -1,0 +1,21 @@
+//-------------------------------------------------------------------------------
+  @name: belida-explore
+  -------------------------------------------------------------------------------//
+
+//belida-explore
+.belida-explore
+  .container
+    .belida-explore__inner
+      .belida-explore__content
+        h3.belida-explore__label= data.title
+        p.belida-explore__desc= data.desc
+        .belida-explore__img
+          ='\n'
+          img.belida-explore__img-el(src=data.img alt=data.title)/
+      .belida-explore__list
+        each item in data.list
+          .belida-explore__item
+            h3.belida-explore__item__title= item.title
+            .belida-explore__item__desc!= item.desc
+
+='\n'

@@ -1,0 +1,39 @@
+//-------------------------------------------------------------------------------
+  @name: businesses
+  -------------------------------------------------------------------------------//
+
+//businesses
+.businesses-key(class=`businesses-key--${page}`)
+  .container
+    if page !== 'mining'
+      .businesses-key__head
+        h2.businesses-key__title= data.title
+    .businesses-key__body
+      .businesses-key__content
+        if data.list.length > 0 && page === 'mining'
+          h2.businesses-key__title= data.title
+          .businesses-key__desc!= data.desc1
+          .businesses-key__list
+            each item in data.list
+              .businesses-key__item
+                .businesses-key__icon
+                  ='\n'
+                  img.businesses-key__icon__el(src=item.img alt=item.title)/
+                .businesses-key__text
+                  h3.businesses-key__label= item.title
+                  p.businesses-key__desc= item.desc
+          .businesses-key__desc!= data.desc2
+        else
+          .businesses-key__list
+            each item in data.list
+              .businesses-key__item
+                .businesses-key__icon
+                  ='\n'
+                  img.businesses-key__icon__el(src=item.img alt=item.title)/
+                .businesses-key__text
+                  h3.businesses-key__label= item.title
+                  p.businesses-key__desc= item.desc
+      .businesses-key__map
+        iframe(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4797.7267092993125!2d106.848541!3d-6.2296168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f305d1c582d7%3A0xab4ec647a3a86a31!2sPT%20Sele%20Raya%20Belida!5e1!3m2!1sid!2sid!4v1775205558125!5m2!1sid!2sid"  style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade")
+
+='\n'

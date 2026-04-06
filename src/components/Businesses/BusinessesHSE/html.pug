@@ -1,0 +1,22 @@
+//-------------------------------------------------------------------------------
+  @name: businesses why
+  -------------------------------------------------------------------------------//
+
+//businesses-hse
+.businesses-hse(class=`businesses-hse--${page}`)
+  .container
+    .businesses-hse__head
+      h2.businesses-hse__title= data.title
+      if data.subtitle
+        .businesses-hse__subtitle!= data.subtitle
+    .businesses-hse__body.owl-carousel.js-businesses-hse-slider
+      each item, idx in data.list
+        .businesses-hse__item
+          .businesses-hse__icon
+            img.businesses-hse__icon__el(src=item.img alt=item.title)
+          .businesses-hse__text
+            h3.businesses-hse__label= item.title
+            p.businesses-hse__desc= item.desc
+            p.businesses-hse__number= idx + 1
+
+='\n'

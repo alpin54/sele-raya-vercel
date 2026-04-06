@@ -1,0 +1,58 @@
+//-------------------------------------------------------------------------------
+  @name: Contact Form
+//-------------------------------------------------------------------------------
+
+//contact-form
+.contact-form
+  .container
+    .contact-form__inner
+      .contact-form__text
+        h6.contact-form__subtitle= dataForm.subtitle
+        h2.contact-form__title= dataForm.title
+        p.contact-form__desc= dataForm.desc
+        .contact-form__info
+          .contact-form__info-title Headquarters
+          ul.contact-form__info-list
+            each info in dataForm.info
+              .contact-form__info-item
+                if info.type === 'map'
+                  .contact-form__info-map
+                    ='\n'
+                    i.sr(class='sr-' + info.icon)
+                    ='\n'
+                    span.info__label
+                      each line, idx in info.label
+                        | #{idx !== 0 ? '\n' : ''}#{line}
+                else
+                  ='\n'
+                  a.contact-form__info-link(href=info.href)
+                    ='\n'
+                    i.sr(class='sr-' + info.icon)
+                    ='\n'
+                    span.info__label
+                      each line, idx in info.label
+                        | #{idx !== 0 ? '\n' : ''}#{line}
+      .contact-form__input
+        ='\n'
+        form.contact-form__body.js-form-contact(data-url='#' method='post')
+          each val in dataForm.form
+            .contact-form__row
+              include ../../_Elements/FormControl/html.pug
+          .contact-form__row
+            .contact-form__consent
+              label.contact-form__consent-label(for='contact-consent')
+                input#contact-consent.contact-form__consent-input.js-contact-consent(type='checkbox' name='contact-consent')/
+                span.contact-form__consent-box(aria-hidden='true')
+                span.contact-form__consent-text
+                  | I agree to the
+                  a.contact-form__consent-link(href='/privacy-policy.html' target='_blank' rel='noopener noreferrer') Privacy Policy
+              p.contact-form__consent-error.js-contact-consent-error Please agree to the Privacy Policy.
+          .contact-form__row
+            ='\n'
+            button.btn.btn--reverse.btn--icon(type='submit' disabled)
+              ='\n'
+              span Submit
+                ='\n'
+                i.sr.sr-paper-plane-right
+                ='\n'
+

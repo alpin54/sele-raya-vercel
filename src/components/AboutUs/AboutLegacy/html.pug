@@ -1,0 +1,22 @@
+//-------------------------------------------------------------------------------
+  @name: About Legacy
+  -------------------------------------------------------------------------------//
+
+//aboutLegacy
+.about-legacy
+  .container 
+    .about-legacy__top
+      h2.about-legacy__title
+        | !{data.title}
+      p.about-legacy__desc
+        | !{data.desc}
+    .about-legacy__bottom
+      .about-legacy__video 
+        ='\n'
+        video.about-legacy__video-el(loop="" muted="" playsinline="" autoplay)
+          ='\n'
+          source(src=data.video type="video/mp4")
+      .about-legacy__text 
+        .about-legacy__text-desc
+          | !{data.text}
+  ='\n'

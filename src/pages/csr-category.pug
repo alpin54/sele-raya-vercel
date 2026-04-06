@@ -1,0 +1,18 @@
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'CSR Categrory';
+    page = 'csr';
+    headerStill = true;
+
+//- Body
+block siteContent
+  //- CSR Category
+  include csr-category/CsrCategory.pug
+
+
+
+
+

@@ -1,0 +1,36 @@
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'About Us';
+    page = 'abouts';
+
+//- Body
+block siteContent
+  //- Page Banner
+  include about-us/PageBanner.pug
+
+  //- About Highlight
+  include about-us/aboutHighlight.pug
+
+  //- About Legacy
+  include about-us/aboutLegacy.pug
+
+  //- About Vision Mission
+  include about-us/aboutVisionMission.pug
+
+  //- About Corporate
+  include about-us/aboutCorporate.pug
+
+  //- About Team
+  include about-us/aboutTeam.pug
+
+  //- Beyond Section
+  include about-us/aboutBeyondSection.pug
+
+  //- Beyond Energy
+  include about-us/aboutBeyondEnergy.pug
+
+
+

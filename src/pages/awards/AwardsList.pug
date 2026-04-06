@@ -1,0 +1,143 @@
+//-------------------------------------------------------------------------------
+  @name: Awards List
+  -------------------------------------------------------------------------------//
+
+-
+  data = {
+    filter: [
+      {
+        type: 'text',
+        name: 'search',
+        id: 'search',
+        placeholder: 'Search',
+        class: 'js-search',
+        autocomplete: 'off',
+        icon: {
+          before: 'search',
+        },
+      },
+      {
+        type: 'hidden',
+        name: 'year',
+        id: 'year',
+        mobileLabel: 'Filters',
+        placeholder: 'All Years',
+        class: 'js-select js-filter-select',
+        readonly: 'readonly',
+        autocomplete: 'off',
+        icon: {
+          before: 'faders',
+          after: 'caret-down'
+        },
+        applyButton: true,
+        applyButtonText: 'Apply',
+        list: [
+          {
+            text: '2022',
+            value: '2022',
+          },
+          {
+            text: '2023',
+            value: '2023',
+          },
+          {
+            text: '2024',
+            value: '2024',
+          },
+          {
+            text: '2025',
+            value: '2025',
+          },
+        ]
+      },
+
+    ],
+    list: [
+      {
+        year: '2025',
+        title: 'Quickest Exploration to Production Milestone (SKKMIGAS)',
+        desc: '<p>Sele Raya Belida proudly received the Quickest Exploration to Production Milestone award from SKK Migas in 2025.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in accelerating the exploration phase through to first production within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award1.png',
+          alt: 'Award 1',
+        },
+
+      },
+      {
+        year: '2025',
+        title: 'Fastest UKL-UPL Transition Completion – Exploration to Production (SKKMIGAS)',
+        desc: '<p>Sele Raya Belida proudly received the Fastest UKL-UPL Transition Completion – Exploration to Production award from SKK Migas in 2025.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in accelerating the exploration phase through to first production within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award2.png',
+          alt: 'Award 2',
+        },
+
+      },
+      {
+        year: '2025',
+        title: 'Best Respondent – Oil & Gas Survey (BPS)',
+        desc: '<p>Sele Raya Belida proudly received the Best Respondent – Oil & Gas Survey award from BPS in 2025.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in accelerating the exploration phase through to first production within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award3.png',
+          alt: 'Award 3',
+        },
+      },
+      {
+        year: '2024',
+        title: 'Optimum Production Performance (SKKMIGAS)',
+        desc: '<p>Sele Raya Belida proudly received the Optimum Production Performance award from SKK Migas in 2024.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in optimizing production performance within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award4.png',
+          alt: 'Award 4',
+        },
+      },
+      {
+        year: '2022',
+        title: 'Best Exploration Drilling Performance – Southern Sumatra (SKKMIGAS)',
+        desc: '<p>Sele Raya Belida proudly received the Best Exploration Drilling Performance award from SKK Migas in 2022.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in exploration drilling performance within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award5.png',
+          alt: 'Award 5',
+        },
+      },
+      {
+        year: '2014',
+        title: 'Best Improvement Oil & Gas Company of the Year',
+        desc: '<p>Sele Raya Belida proudly received the Quickest Exploration to Production Milestone award from SKK Migas in 2025.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in accelerating the exploration phase through to first production within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award6.png',
+          alt: 'Award 6',
+        },
+      },
+      {
+        year: '2013',
+        title: 'Blue Category – Exploration Commitment (SKKMIGAS)',
+        desc: '<p>Sele Raya Belida proudly received the Quickest Exploration to Production Milestone award from SKK Migas in 2025.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in accelerating the exploration phase through to first production within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award7.png',
+          alt: 'Award 7',
+        },
+      },
+      {
+        year: '2009',
+        title: 'Best PSC Exploration Commitment – BPMIGAS',
+        desc: '<p>Sele Raya Belida proudly received the Quickest Exploration to Production Milestone award from SKK Migas in 2025.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in accelerating the exploration phase through to first production within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        image: {
+          src: 'assets/img/dummy/award8.png',
+          alt: 'Award 8',
+        },
+      },
+      {
+        year: '2009',
+        desc: '<p>Sele Raya Belida proudly received the Quickest Exploration to Production Milestone award from SKK Migas in 2025.</p><p>The award was granted to Sele Raya Belida as the operator of the Belida Block in recognition of its exceptional achievement in accelerating the exploration phase through to first production within a remarkable timeframe.</p> <p>This milestone reflects the company’s strong project execution, operational efficiency, and commitment to supporting Indonesia’s energy security through timely and responsible asset development. The achievement also demonstrates effective collaboration with stakeholders, adherence to regulatory standards, and a disciplined approach to risk management and field optimization.</p> <p>Through this accomplishment, Sele Raya Belida reinforces its position as a reliable and performance-driven operator in Indonesia’s upstream oil and gas sector.</p>',
+        title: 'Safety Excellence – ConocoPhillips Indonesia',
+        image: {
+          src: 'assets/img/dummy/award9.png',
+          alt: 'Award 9',
+        },
+      },
+
+    ]
+  };
+
+include ../../components/Awards/AwardsList/html.pug

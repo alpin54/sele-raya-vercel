@@ -1,0 +1,90 @@
+/* ==========================================================================
+   Csr Card
+   ========================================================================== */
+
+.csr-content__card {
+  @include content-transition;
+  @include fade-in-loaded;
+  &-box {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    &:hover {
+      .csr-content__card-title {
+        transform: translateY(-4px);
+      }
+      .csr-content__card-img-el {
+        transform: scale(1.05);
+      }
+    }
+  }
+  &-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    cursor: pointer;
+    @include remove-tap-highlight;
+  }
+  &-img {
+    &-el {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      transition: all 0.3s ease;
+    }
+  }
+  &-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 24px 24px 22px;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
+    color: color(neutral, 0);
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    @include retina {
+      padding: 18px 18px 16px;
+    }
+  }
+  &-title {
+    white-space: normal;
+    @include font-size(h5);
+    font-weight: fw(medium);
+    color: color(neutral, 50);
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+    @include retina {
+      @include font-size(h6);
+    }
+
+  }
+  &-date {
+    display: flex;
+    align-items: center;
+    align-self: flex-start;
+    border: 1px solid color(white, 1);
+    background-color: color(black, 5);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    padding: 4px 14px 4px 10px;
+    color: color(neutral, 50);
+    & i {
+      display: block;
+      margin-right: 4px;
+      @include font-size(small);
+    }
+    & span {
+      @include font-size(small);
+    }
+
+  }
+
+}

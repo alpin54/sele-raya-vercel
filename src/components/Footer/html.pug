@@ -1,0 +1,148 @@
+//-------------------------------------------------------------------------------
+ @name: Footer
+//-------------------------------------------------------------------------------
+
+-
+  const menuGroups = [
+    {
+      key: 'energy',
+      title: 'Energy',
+      items: [
+        { label: 'Sele Raya Belida', href: '/belida' },
+        { label: 'Sele Raya Energy', href: '/energi' },
+        { label: 'Sele Raya Sejati', href: '/sejati' },
+      ]
+    },
+    {
+      key: 'mining',
+      title: 'Mining',
+      items: [
+        { label: 'Sele Raya Mining', href: '/mining' },
+        { label: 'Sele Raya Aryasatya', href: '/aryasatya' },
+      ]
+    },
+    {
+      key: 'agriculture',
+      title: 'Agriculture',
+      items: [
+        { label: 'Sele Raya Agri', href: '/agri' },
+        { label: 'Amindo Wana Persada', href: '/persada' },
+      ]
+    },
+    {
+      key: 'venture',
+      title: 'Venture',
+      items: [
+        { label: 'Investidea Ventures', href: '/ventures' },
+      ]
+    },
+    {
+      key: 'fmcg',
+      title: 'FMCG',
+      items: [
+        { label: 'Sele Ingredients', href: '/ingredients' },
+      ]
+    },
+    {
+      key: 'company',
+      title: 'Company',
+      items: [
+        { label: 'About', href: '/about' },
+        { label: 'Awards', href: '/awards' },
+        { label: 'Milestones', href: '/milestones' },
+        { label: 'Career', href: '/career' },
+        { label: 'Contact', href: '/contact-us.html' },
+        { label: 'CSR', href: '/csr' },
+        { label: 'News', href: '/news' },
+      ]
+    }
+  ];
+
+  // Used for layout grouping—see
+  const menuLayout = [
+    ['energy', 'mining'],
+    ['agriculture', 'venture', 'fmcg'],
+    ['company'],
+  ];
+
+  const infoLinks = [
+    {
+      icon: 'map-pin-2',
+      label: [
+        'Graha Sele Building',
+        'Jl. Tebet Raya No. 8-10',
+        'Tebet Barat, Tebet, Jakarta Selatan',
+        'DKI Jakarta 12810'
+      ],
+      type: 'map',
+      href: 'https://maps.google.com/?q=Graha+Sele+Building+Jakarta'
+    },
+    {
+      icon: 'phone',
+      label: ['021-83703608'],
+      type: 'tel',
+      href: 'tel:02183703608'
+    },
+    {
+      icon: 'email',
+      label: ['help@seleraya.co.id'],
+      type: 'email',
+      href: 'mailto:help@seleraya.co.id'
+    }
+  ];
+
+//footer
+.footer
+  .container
+    .footer__inner
+      .footer__top
+        // Logo
+        .footer__logo
+          ='\n'
+          a.footer__logo__link(href='/')
+            ='\n'
+            img.footer__logo__img(src='assets/img/logo/logo-primary.png', alt='logo')
+
+        // Menu group columns
+        .footer__menu
+          each groupKeys in menuLayout
+            .footer__menu__grup
+              each groupKey in groupKeys
+                - var group = menuGroups.find(g => g.key === groupKey)
+                if group
+                  .footer__menu__grup-item
+                    h6.footer__menu__grup-title= group.title
+                    ul.footer__menu__grup-list
+                      each item in group.items
+                        li.footer__menu__grup-items
+                          ='\n'
+                          a.footer__menu__grup-link(href=item.href)= item.label
+
+          // Information Column (special)
+          .footer__menu__grup
+            .footer__menu__grup-item
+              h6.footer__menu__grup-title-contact Information
+              ul.footer__menu__grup-contact
+                each info in infoLinks
+                  li.footer__menu__grup-contact-items
+                    if info.type === 'map'
+                      .footer__menu__grup-map
+                        ='\n'
+                        i.sr(class='sr-' + info.icon)
+                        ='\n'
+                        span.info__label
+                          each line, idx in info.label
+                            | #{idx !== 0 ? '\n' : ''}#{line}
+                    else
+                      ='\n'
+                      a.footer__menu__grup-contact-link(href=info.href)
+                        ='\n'
+                        i.sr(class='sr-' + info.icon)
+                        ='\n'
+                        span.info__label
+                          each line, idx in info.label
+                            | #{idx !== 0 ? '\n' : ''}#{line}
+      .footer__bottom
+        p.footer__bottom__copyright Copyright © 2026
+        ='\n'
+        a.footer__bottom__privacy.footer__menu__grup-link(href='/privacy-policy.html') Privacy Policy

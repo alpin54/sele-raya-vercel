@@ -1,0 +1,261 @@
+//-------------------------------------------------------------------------------
+  @name: News List
+  -------------------------------------------------------------------------------//
+
+-
+  data = {
+    filter: [
+      {
+        type: 'text',
+        name: 'search',
+        id: 'search',
+        placeholder: 'Search',
+        class: 'js-search',
+        autocomplete: 'off',
+        icon: {
+          before: 'search',
+        },
+      },
+      {
+        type: 'hidden',
+        name: 'category',
+        id: 'category',
+        mobileLabel: 'Filters',
+        placeholder: 'All Category',
+        class: 'js-select js-filter-select',
+        readonly: 'readonly',
+        autocomplete: 'off',
+        icon: {
+          before: 'faders',
+          after: 'caret-down'
+        },
+        applyButton: true,
+        applyButtonText: 'Apply',
+        list: [
+          {
+            text: 'All Category',
+            value: 'all-category',
+          },
+          {
+            text: 'category 1',
+            value: 'category-1',
+          },
+          {
+            text: 'category 2',
+            value: 'category-2',
+          },
+          {
+            text: 'category 3',
+            value: 'category-3',
+          },
+          {
+            text: 'category 4',
+            value: 'category-4',
+          },
+        ]
+      },
+      {
+        type: 'hidden',
+        name: 'year',
+        id: 'year',
+        mobileLabel: 'Filters',
+        placeholder: 'All Years',
+        class: 'js-select js-filter-select',
+        readonly: 'readonly',
+        autocomplete: 'off',
+        icon: {
+          before: 'faders',
+          after: 'caret-down'
+        },
+        applyButton: true,
+        applyButtonText: 'Apply',
+        list: [
+          {
+            text: 'All Years',
+            value: 'all-years',
+          },
+          {
+            text: '2022',
+            value: '2022',
+          },
+          {
+            text: '2023',
+            value: '2023',
+          },
+          {
+            text: '2024',
+            value: '2024',
+          },
+          {
+            text: '2025',
+            value: '2025',
+          },
+        ]
+      },
+    ],
+    list: [
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Production",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Partnership",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Production",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Award",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Production",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Partnership",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Production",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Award",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Production",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Partnership",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Production",
+        date: "05 Dec 2025"
+      },
+      {
+        link: {
+          to: "/news-details.html",
+          text: "Read More"
+        },
+        img: {
+          src: "assets/img/dummy/news-item.png",
+          alt: "News"
+        },
+        title:'SAS-2 Well Discovery: PT Sele Raya Belida Successfully Finds New Oil & Gas Reserves',
+        label: "Award",
+        date: "05 Dec 2025"
+      },
+    ]
+
+
+  };
+
+include ../../components/News/NewsList/html.pug

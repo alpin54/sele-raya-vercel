@@ -1,0 +1,104 @@
+//-------------------------------------------------------------------------------
+//  @name: Form Control
+//-------------------------------------------------------------------------------
+
+.form-control(
+  class=[
+    val.class,
+    val.icon ? 'form-control--icon' : '',
+    val.list ? 'form-control--select' : '',
+    val.type === 'file' ? 'form-control--file' : ''
+  ].filter(Boolean).join(' ')
+)
+
+  //- label
+  label.form-control__label(for=val.id)=val.label
+
+  //- icon before
+  if val.icon && val.icon.before
+    .form-control__icon.form-control__icon--before
+      i(class='sr sr-'+val.icon.before)
+
+  //- custom select button
+  if val.list
+    button.form-control__select__btn(
+      type='button'
+      data-default-label=(val.label ? val.label : val.placeholder)
+      data-mobile-label=val.mobileLabel
+    )= val.label ? val.label : val.placeholder
+
+  //- textarea
+  if val.type === 'textarea'
+    textarea.form-control__input(
+      name=val.name
+      id=val.id
+      placeholder=val.placeholder
+      required=(val.required !== undefined ? 'required' : false)
+      data-target=val.target
+      autocomplete=val.autocomplete
+      readonly=val.readonly
+      rows="3"
+    ) #{val.value}
+
+  //- custom file input
+  else if val.type === 'file'
+    .form-control__file-wrapper
+      input.form-control__input-file(
+        type='file'
+        name=val.name
+        id=val.id
+        accept='.pdf,.doc,.jpg'
+        required=(val.required ? 'required' : false)
+        style='display:none'
+      )
+      button.form-control__file-btn(type='button', tabindex='0')
+        i(class='phd phd-link').phd.phd-paperclip
+      if val.info
+        .form-control__file-info #{val.info}
+      span.form-control__file-chosen#file-chosen
+
+  //- standard input
+  else
+    input.form-control__input(
+      type=val.type
+      name=val.name
+      id=val.id
+      placeholder=val.placeholder
+      required=(val.required !== undefined ? 'required' : false)
+      data-target=val.target
+      value=val.value
+      autocomplete=val.autocomplete
+      readonly=val.readonly
+    )/
+
+
+
+  //- icon after
+  if val.icon && val.icon.after
+    .form-control__icon.form-control__icon--after
+      i(class='sr sr-'+val.icon.after)
+
+  //- custom select dropdown
+  if val.list
+    .form-control__select
+      .form-control__select__box
+        .form-control__select__head
+          p.form-control__select__title= val.mobileLabel ? val.mobileLabel : (val.label ? val.label : val.placeholder)
+          button.form-control__select__close(type='button')
+            ='\n'
+            i.sr.sr-close
+        ul.form-control__select__list
+          each item in val.list
+            li.form-control__select__item(data-value=item.value)= item.text
+        if val.applyButton
+          .form-control__select__actions
+            button.form-control__apply(type='button')= val.applyButtonText ? val.applyButtonText : 'Apply'
+
+  //- error validation
+  if val.target
+    p.form-control__alert(
+      id=val.target
+      data-req=val.required
+      data-invalid=val.invalid
+      data-invalid-phone=(val.invalidPhone || val.invalid)
+    )

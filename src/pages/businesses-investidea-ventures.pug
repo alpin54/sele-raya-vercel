@@ -1,0 +1,29 @@
+//-------------------------------------------------------------------------------
+  @name: Home
+  -------------------------------------------------------------------------------//
+
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Investidea Ventures';
+    page = 'investidea-ventures'
+
+//- Body
+block siteContent
+  //- Investidea Ventures Banner
+  include businesses/investidea-ventures/InvestideaVenturesBanner.pug
+
+  //- Investidea Ventures Overview
+  include businesses/investidea-ventures/InvestideaVenturesOverview.pug
+
+  //- Investidea Ventures Commitment
+  include businesses/investidea-ventures/InvestideaVenturesCommitment.pug
+
+  //- Investidea Ventures About
+  include businesses/investidea-ventures/InvestideaVenturesAbout.pug
+
+  //- Investidea Ventures Value
+  include businesses/investidea-ventures/InvestideaVenturesValue.pug
+

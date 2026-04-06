@@ -1,0 +1,21 @@
+//-------------------------------------------------------------------------------
+  @name: About Beyond Energy Section
+  -------------------------------------------------------------------------------//
+
+//About Beyond Energy Section
+.about-bs
+  .about-bs__bg
+    ='\n'
+    img.about-bs__bg-el(src="assets/img/dummy/"+ data.bgImg, alt=data.title)/
+  .about-bs__wrapp
+    .container
+      .about-bs__text
+        h6.about-bs__subtitle
+          | !{data.subtitle}
+        h2.about-bs__title
+          | !{data.title}
+        .about-bs__desc
+          | !{data.desc}
+
+
+='\n'

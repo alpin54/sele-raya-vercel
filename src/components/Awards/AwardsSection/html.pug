@@ -1,0 +1,38 @@
+//-------------------------------------------------------------------------------
+// @name: Awards
+//-------------------------------------------------------------------------------
+
+.awards
+  .container
+    include ../SectionHeader/html.pug
+
+  .awards__body
+    .container
+      .awards__inner
+        .awards__carousel
+          .awards__carousel-wrapp
+            .awards__list.js-awards-carousel
+              each item, idx in data.list
+                .awards__item(
+                  class= idx === 1 ? 'is-active' : ''
+                  data-awards-img='assets/img/dummy/' + item.img
+                  data-awards-alt=data.title + ' ' + item.years
+                )
+                  .awards__top
+                    h3.awards__years !{item.years}
+                  .awards__bottom
+                    p.awards__bottom-desc !{item.desc}
+                    ='\n'
+                    a.awards__bottom-link(href="#")
+                      ='\n'
+                      span.awards__bottom-link-text Read More
+                      ='\n'
+                      i.sr.sr-caret-right
+          // kanan: image
+        .awards__right
+          .awards__image
+            ='\n'
+            img.awards__image-el(
+              src='assets/img/dummy/' + data.list[0].img
+              alt=data.title
+            )

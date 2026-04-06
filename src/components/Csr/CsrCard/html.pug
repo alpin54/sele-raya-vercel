@@ -1,0 +1,21 @@
+//-------------------------------------------------------------------------------
+  @name: Csr Card
+  -------------------------------------------------------------------------------//
+
+// Csr Card
+.csr-content__card
+  .csr-content__card-box
+    ='\n'
+    a.csr-content__card-link(href=card.link)
+    .csr-content__card-img
+      ='\n'
+      img.csr-content__card-img-el(src=card.image.src alt=card.image.alt)/
+    .csr-content__card-text
+      h5.csr-content__card-title !{card.title}
+      .csr-content__card-date
+        ='\n'
+        i.sr.sr-calendar-blank
+        ='\n'
+        span !{card.date}
+
+  ='\n'

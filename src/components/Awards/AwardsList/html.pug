@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------
+  @name: Awards List
+  -------------------------------------------------------------------------------//
+
+='\n\n'
+//.- Awards List
+.awards-list
+  .container
+    .awards-list__inner
+      - awardsData = data || {};
+      - filterItems = awardsData.filter || [];
+      - data = filterItems;
+      include ../../_Elements/Filter/html.pug
+      .awards-list__list
+        each val in (awardsData.list || [])
+          - data = val;
+          include ../AwardsCard/html.pug
+    include ../AwardCardModal/html.pug
+

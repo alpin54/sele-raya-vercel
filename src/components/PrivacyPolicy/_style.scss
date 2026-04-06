@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Privacy Policy Section
+   ========================================================================== */
+
+.privacy-policy {
+  padding: 80px 0 104px;
+  @include medium {
+    padding: 56px 0 72px;
+  }
+  @include x-small {
+    padding: 32px 0 56px;
+  }
+  &__inner {
+    padding: 0 120px;
+    @include medium {
+      padding: 0;
+    }
+  }
+  &__head {
+    @include content-transition;
+    @include fade-in-loaded;
+    margin-bottom: 40px;
+    @include medium {
+      margin-bottom: 32px;
+    }
+    @include x-small {
+      margin-bottom: 24px;
+    }
+  }
+  &__title {
+    @include font-size(h1);
+    font-weight: fw(bold);
+    color: color(primary, 5);
+    margin-bottom: 16px;
+    @include large {
+      @include font-size(h2);
+    }
+    @include medium {
+      @include font-size(h3);
+    }
+    @include x-small {
+      @include font-size(h4);
+      margin-bottom: 8px;
+    }
+  }
+  &__desc {
+    @include font-size(h5);
+    font-weight: fw(medium);
+    color: color(neutral, 8);
+    margin-bottom: 0;
+    @include medium {
+      @include font-size(h6);
+    }
+     @include x-small {
+      @include font-size(body);
+    }
+  }
+  &__content {
+    @include content-transition;
+    @include fade-in-loaded;
+    & table {
+      tr {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 40px;
+        @include medium {
+          flex-direction: column;
+          margin-bottom: 32px;
+        }
+        @include x-small {
+          margin-bottom: 24px;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+      td:nth-child(1) {
+        width: 296px;
+        margin-right: 24px;
+        @include medium {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 16px;
+        }
+        @include x-small {
+          margin-bottom: 10px;
+        }
+      }
+      td:nth-child(2) {
+        flex: 1;
+      }
+
+      & h5 {
+        @include font-size(h5);
+        font-weight: fw(medium);
+        color: color(neutral, 8);
+        margin: 0;
+        @include x-small {
+          @include font-size(h6);
+        }
+      }
+      & p, li {
+        @include font-size(h6);
+        font-weight: fw(regular);
+        color: color(neutral, 6);
+        margin: 0;
+        @include x-small {
+          @include font-size(body);
+          margin-bottom: 12px;
+        }
+      }
+      & ul {
+        margin: 0;
+      }
+    }
+
+  }
+}

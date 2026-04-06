@@ -1,0 +1,31 @@
+//-------------------------------------------------------------------------------
+  @name: Csr Content
+  -------------------------------------------------------------------------------//
+
+// Csr Content
+.csr-content
+  .container
+    .csr-content__list
+      each item in data.csrContent
+        .csr-content__item
+          .csr-content__head
+            .csr-content__head__left
+              .csr-content__icon
+                ='\n'
+                img.csr-content__icon-el(src=item.icon.src alt=item.icon.alt || 'icon image')/
+              .csr-content__head-text
+                h3.csr-content__head-title !{item.title}
+                p.csr-content__head-desc !{item.desc}
+            .csr-content__head__right
+              ='\n'
+              a.btn.btn--primary.btn--icon(href=item.btn.to)
+                ='\n'
+                span.btn__text
+                  | !{item.btn.text}
+                  ='\n'
+                  i.sr.sr-caret-right
+          .csr-content__card-list
+            each card in item.cards
+              include ../CsrCard/html.pug
+
+  ='\n'

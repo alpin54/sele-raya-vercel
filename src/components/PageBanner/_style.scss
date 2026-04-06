@@ -1,0 +1,146 @@
+/* ==========================================================================
+   Page Banner
+   ========================================================================== */
+
+.page-banner {
+  $pb: &;
+  &--small {
+    height: 568px;
+    #{$pb} {
+      &__text {
+        max-width: 552px;
+      }
+      &__img {
+        &::before {
+          background: color(black, 7);
+        }
+      }
+    }
+
+  }
+  height: 632px;
+  overflow: hidden;
+  position: relative;
+  background-color: color(black, 10);
+  @include large {
+    height: 580px;
+  }
+  @include medium {
+    height: 520px;
+  }
+  @include x-small {
+    height: 480px;
+  }
+  &__img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    z-index: 1;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 83.37%);
+      z-index: 3;
+      
+    }
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 17.48%, rgba(0, 0, 0, 0) 31.09%);
+      z-index: 2;
+      @include medium {
+        height: 100%;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 17.48%, rgba(0, 0, 0, 0) 31.09%);
+      }
+    }
+    &__el {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      @include fade-in-loaded(zoom-out);
+      &.mobile {
+        display: none;
+        @include x-small {
+           display: block;
+        }
+      }
+      &.desktop {
+        @include x-small {
+          display: none;
+        }
+      }
+    }
+  }
+  &__content {
+    display: none;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 88px 0 16px;
+    align-items: center;
+    // color: color(light, 2);
+    @include small {
+      padding: 88px 0 40px;
+      align-items: flex-end;
+    }
+  }
+  &__text {
+    max-width: 432px;
+  }
+
+  &__subtitle {
+    @include font-size(h6);
+    font-weight: fw(medium);
+    color: color(neutral, 50);
+    margin-bottom: 12px;
+    @include fade-in-loaded;
+    transition-delay: 200ms;
+    @include x-small {
+      @include font-size(body);
+    }
+  }
+  &__title {
+    font-family: ff(title);
+    @include font-size(h1);
+    font-weight: fw(bold);
+    color: color(neutral, 50);
+    margin-bottom: 24px;
+    @include fade-in-loaded;
+    transition-delay: 300ms;
+    @include large {
+      @include font-size(h2);
+      margin-bottom: 8px;
+    }
+    @include medium {
+      @include font-size(h3);
+    }
+    @include x-small {
+      @include font-size(h4);
+    }
+  }
+  &__desc {
+    @include font-size(h6);
+    margin-bottom: 0;
+    color: rgba(color(neutral, 50), 0.88);
+    @include fade-in-loaded;
+    transition-delay: 400ms;
+    @include x-small {
+      @include font-size(body);
+    }
+  }
+}

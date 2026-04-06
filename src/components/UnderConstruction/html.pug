@@ -1,0 +1,20 @@
+//-------------------------------------------------------------------------------
+  @name: Under Construction Section
+  -------------------------------------------------------------------------------//
+
+='\n'
+//.under-construction
+.under-construction
+  .container
+    .under-construction__inner
+      .under-construction__img
+        ='\n'
+        img.under-construction__img__el(src=data.img alt=data.title)/
+      .under-construction__text
+        h1.under-construction__title= data.title
+        ='\n'
+        a.btn.btn--icon(href=data.btn.to)
+          ='\n'
+          span.btn__text
+            | !{data.btn.text}
+            i.fa-solid.fa-rotate-left

@@ -1,0 +1,33 @@
+//-------------------------------------------------------------------------------
+  @name: About Vision Mission
+  -------------------------------------------------------------------------------//
+
+//aboutVisionMission
+.about-vm
+  .container
+    .about-vm__inner
+      .about-vm__content
+        .about-vm__content__card
+          .about-vm__content__image 
+            ='\n'
+            img.about-vm__content__image-el(src='assets/img/icon/'+data.vision.image alt=data.vision.title)/
+          .about-vm__content__text
+            h4.about-vm__title
+              | !{data.vision.title}
+            p.about-vm__desc
+              | !{data.vision.desc}
+        .about-vm__content__card
+          .about-vm__content__image 
+            ='\n'
+            img.about-vm__content__image-el(src='assets/img/icon/'+data.mission.image alt=data.mission.title)/
+          .about-vm__content__text
+            h4.about-vm__title
+              | !{data.mission.title}
+            p.about-vm__desc
+              | !{data.mission.desc}
+        
+      .about-vm__image
+        ='\n'
+        img.about-vm__image-el(src='assets/img/dummy/'+data.img alt=data.title || 'Our Vision & Mission')/
+  
+  ='\n'

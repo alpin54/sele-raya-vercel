@@ -1,0 +1,105 @@
+/* ==========================================================================
+   Modal Success
+   ========================================================================== */
+
+.modal-success {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: color(black, 6);
+  backdrop-filter: blur(4px);
+  z-index: zi(header) + 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+  transition-delay: 300ms;
+  @include small {
+    padding: 32px 24px;
+    align-items: flex-start;
+    @include scroll(y, touch, hide);
+  }
+  @include x-small {
+    align-items: center;
+  }
+  @include retina {
+    padding: 24px 16px;
+  }
+  &__content {
+    background: color(neutral, 50);
+    padding: 56px 32px 48px;
+    width: 440px;
+    border-radius: 12px;
+    text-align: center;
+    transform: translateY(20px);
+    @include radius(lg);
+    opacity: 0;
+    visibility: hidden;
+    filter: blur(10px);
+    transition: opacity 0.5s ease 0ms, transform 0.5s ease 0ms, filter 0.5s ease 500ms, visibility 0.5s ease 0ms;
+    @include large {
+      width: 420px;
+      padding: 32px;
+    }
+    @include small {
+      max-width: 336px;
+      width: 100%;
+      padding: 32px 24px;
+    }
+    @include retina {
+      padding: 24px 16px;
+    }
+  }
+  &.is-visible {
+    z-index: 99;
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0ms;
+    .modal-success__content {
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      filter: none;
+      transition: opacity 0.5s ease 100ms, transform 0.5s ease 100ms, filter 0.5s ease 100ms, visibility 0.5s ease 100ms;
+    }
+  }
+  &__img {
+    margin-bottom: 48px;
+    &__el {
+      display: block;
+      width: 128px;
+      height: 128px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    @include small {
+      margin-bottom: 24px;
+      &__el {
+        width: 92px;
+        height: 92px;
+      }
+    }
+  }
+  &__title {
+    @include font-size(h4);
+    margin-bottom: 4px;
+    font-weight: fw(semibold);
+    color: color(neutral, 9);
+     @include x-small {
+      @include font-size(h5);
+     }
+
+  }
+  &__desc {
+    @include font-size(body);
+    font-weight: fw(regular);
+    color: color(neutral, 6);
+    margin-bottom: 0;
+
+    
+  }
+}

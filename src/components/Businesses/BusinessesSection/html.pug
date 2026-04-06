@@ -1,0 +1,19 @@
+//-------------------------------------------------------------------------------
+  @name: businesses
+  -------------------------------------------------------------------------------//
+
+//businesses
+.businesses
+  .container
+    .businesses__head
+      h6.businesses__subtitle
+        | !{data.subtitle}
+      h2.businesses__title
+        | !{data.title}
+    .businesses__carousel
+      .businesses__body.js-businesses-content
+        each val in data.list
+          - data = val;
+          include ../BusinessesItem/html.pug
+
+='\n'

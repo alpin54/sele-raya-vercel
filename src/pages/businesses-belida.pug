@@ -1,0 +1,32 @@
+//-------------------------------------------------------------------------------
+  @name: Home
+  -------------------------------------------------------------------------------//
+
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'PT Sele Raya Belida';
+    page = 'belida';
+
+//- Body
+block siteContent
+  //- Belida Banner
+  include businesses/belida/BelidaBanner.pug
+
+  //- Belida Key
+  include businesses/belida/BelidaKey.pug
+
+  //- Belida Core
+  include businesses/belida/BelidaCore.pug
+
+  //- Belida Growth
+  //- include businesses/belida/BelidaGrowth.pug
+
+  //- Belida Explore
+  include businesses/belida/BelidaExplore.pug
+
+  //- Belida Why
+  include businesses/belida/BelidaWhy.pug
+

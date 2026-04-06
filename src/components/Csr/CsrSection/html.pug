@@ -1,0 +1,51 @@
+//-------------------------------------------------------------------------------
+  @name: Csr Section
+  -------------------------------------------------------------------------------//
+
+// Csr Section
+.csr-section
+  .container
+    .csr-section__inner
+      .csr-section__content
+        .csr-section__content__head
+          .csr-section__content__text
+            h6.csr-section__subtitle
+              | !{data.subtitle}
+            h2.csr-section__title
+              | !{data.title}
+          .csr-section__button
+            ='\n'
+            a.csr-section__button-link(href=data.link.to)
+              ='\n'
+              span.btn__text
+                | !{data.link.label}
+              ='\n'
+              i.sr.sr-caret-right
+
+        .csr-section__slide
+          .csr-section__slide__inner.js-csr-carousel
+            each slide in data.slides
+              .csr-section__slide__item
+                ='\n'
+                img(src='assets/img/dummy/'+slide.img, alt=slide.title || 'Image slide')/
+
+        .csr-section__content__body
+          each item in data.items
+            .csr-section__content__item
+              .csr-section__content__item__img
+                ='\n'
+                img(src='assets/img/icon/'+item.img, alt=item.title || 'Image icon')/
+              .csr-section__content__item__text
+                h5.csr-section__content__item__title
+                  | !{item.title}
+                p.csr-section__content__item__desc
+                  | !{item.desc}
+                a.csr-section__content__item__link(href=item.link.to)
+                  ='\n'
+                  span.btn__text
+                    | !{item.link.label}
+                  i.sr.sr-caret-right
+              ='\n'
+              a.csr-section__content__item-link(href=item.link.to)
+
+  ='\n'

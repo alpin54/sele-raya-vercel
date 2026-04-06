@@ -1,0 +1,197 @@
+/* ==========================================================================
+   Belida Core
+   ========================================================================== */
+.belida-core {
+  $bc: &;
+  padding: 96px 0 104px;
+  overflow: hidden;
+  background-color: color(primary,1);
+  @include medium {
+    padding: 64px 0 72px;
+  }
+  @include small {
+    padding: 40px 0 48px;
+  }
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 48px;
+    @include fade-in-loaded;
+    @include content-transition;
+    @include medium {
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+    @include small {
+      margin-bottom: 24px;
+    }
+
+  }
+  &__body {
+    overflow: hidden;
+    @include radius(5);
+    @include fade-in-loaded;
+    @include content-transition;
+  }
+  &__title {
+    max-width: 480px;
+    @include font-size(h2);
+    font-weight: fw(bold);
+    color: color(neutral, 9);
+    margin-bottom: 0;
+    margin-right: 32px;
+    @include medium {
+      @include font-size(h3);
+    }
+    @include small {
+      @include font-size(h4);
+    }
+  }
+  &__desc {
+    flex: 1;
+    @include font-size(h6);
+    color: color(neutral, 7);
+    margin-bottom: 0;
+  }
+  &__img {
+    width: 40%;
+    object-fit: cover;
+    border-radius: 8px;
+    @include medium {
+      width: 100%;
+    }
+    &__el {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__text {
+    flex: 1;
+    padding: 32px;
+    background-color: color(primary, 5);
+    @include medium {
+      padding: 24px;
+    }
+    @include small {
+      padding: 20px;
+    }
+  }
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    @include medium {
+      flex-direction: column;
+    }
+  }
+  &__item {
+    flex: 0 0 50%;
+    padding: 20px;
+    border: 1px solid color(neutral, 50);
+    &:first-child {
+      border-radius: 8px 0 0 0;
+      @include medium {
+        border-radius: 8px 8px 0 0;
+      }
+    }
+    &:nth-child(2) {
+      border-radius: 0 8px 0 0;
+      @include medium {
+        border-radius: 0;
+      }
+    }
+    &:nth-last-child(2) {
+      border-radius: 0 0 0 8px;
+      @include medium {
+        border-radius: 0;
+      }
+    }
+    &:last-child {
+      border-radius: 0 0 8px 0;
+      @include medium {
+        border-radius: 0 0 8px 8px;
+      }
+    }
+    &__icon {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    &__head {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    &__title {
+      @include font-size(h6);
+      font-weight: fw(semibold);
+      margin-bottom: 0;
+
+    }
+    &__desc {
+      @include font-size(body);
+      margin-bottom: 0;
+    }
+  }
+  &__section {
+    display: flex;
+    color: color(neutral, 50);
+    @include medium {
+      flex-direction: column;
+    }
+    &__title {
+      @include font-size(h4);
+      font-weight: fw(semibold);
+      margin-bottom: 24px;
+      @include small {
+        @include font-size(h5);
+        margin-bottom: 16px;
+      }
+    }
+    &--reverse {
+      color: color(neutral, 7);
+      flex-direction: row-reverse;
+      @include medium {
+        flex-direction: column;
+      }
+      #{$bc} {
+        &__text {
+          background-color: color(neutral, 50);
+        }
+        &__list {
+          flex-direction: column;
+        }
+        &__item {
+          display: flex;
+          align-items: flex-start;
+          border: 1px solid color(neutral, 3);
+          &:first-child {
+            border-radius: 8px 8px 0 0 !important;
+          }
+          &:nth-child(n) {
+            border-radius: 0;
+          }
+          &:last-child {
+            border-radius: 0 0 8px 8px;
+          }
+          &__head {
+            margin: 4px 8px 0 0;
+          }
+          &__icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 0;
+          }
+        }
+      }
+
+    }
+  }
+}

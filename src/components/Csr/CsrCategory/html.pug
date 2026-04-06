@@ -1,0 +1,30 @@
+//-------------------------------------------------------------------------------
+  @name: Csr Category
+  -------------------------------------------------------------------------------//
+
+// Csr Category
+.csr-category
+  - categoryData = data || {};
+  .container
+    .csr-category__head
+      .csr-category__icon
+        ='\n'
+        img.csr-category__icon-el(src=categoryData.icon.src alt=categoryData.icon.alt)/
+      .csr-category__head-text
+        h2.csr-category__title !{categoryData.title}
+        p.csr-category__desc !{categoryData.desc}
+      -
+        breadcrumbs = [
+          { name: "CSR", link: "csr.html" },
+          { name: "Environment", link: "environment.html" },
+        ];
+      include ../../_Elements/Breadcrumbs/html.pug
+    .csr-category__body
+      .csr-category__filter
+        - data = categoryData.filter || [];
+        include ../../_Elements/Filter/html.pug
+      .csr-category__list
+        each card in (categoryData.list || [])
+          include ../CsrCard/html.pug
+    include ../../_Elements/Pagination/html.pug
+  ='\n'

@@ -1,0 +1,43 @@
+//-------------------------------------------------------------------------------
+  @name: Filter
+  -------------------------------------------------------------------------------//
+
+='\n\n'
+//.filter
+- filterItems = data || [];
+- searchItems = filterItems.filter((item) => !item.list);
+- selectItems = filterItems.filter((item) => item.list);
+- hasGroupedMobileFilters = selectItems.length > 1;
+form.filter(class=hasGroupedMobileFilters ? 'filter--grouped' : '')
+  each val in searchItems
+    .filter__row.filter__row--search
+      include ../FormControl/html.pug
+
+  if selectItems.length
+    if hasGroupedMobileFilters
+      button.filter__mobile-trigger(type='button')
+        i.sr.sr-faders
+        span Filters
+      .filter__desktop-selects
+        each val in selectItems
+          .filter__row.filter__row--select
+            include ../FormControl/html.pug
+      .filter__panel
+        .filter__panel__box
+          .filter__panel__head
+            p.filter__panel__title Filters
+            button.filter__panel__close(type='button')
+              i.sr.sr-close
+          .filter__panel__body
+            each val in selectItems
+              - selectedValue = val.value || (val.list && val.list[0] ? val.list[0].value : '');
+              .filter__group(data-input-id=val.id)
+                ul.filter__group__list
+                  each option in val.list
+                    li.filter__group__item(class=option.value === selectedValue ? 'is-selected' : '' data-value=option.value data-text=option.text)= option.text
+          .filter__panel__actions
+            button.filter__panel__apply(type='submit') Apply
+    else
+      each val in selectItems
+        .filter__row.filter__row--select
+          include ../FormControl/html.pug

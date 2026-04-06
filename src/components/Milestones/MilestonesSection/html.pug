@@ -1,0 +1,31 @@
+//-------------------------------------------------------------------------------
+  @name: Milestones Section
+  -------------------------------------------------------------------------------//
+
+// Milestones Section
+
+.milestones
+  .container
+    include ../../SectionHeader/html.pug
+    .milestones__wrapp
+      .milestones__timeline
+        ul.milestones__timeline-list
+          each item, idx in data.list
+            li.milestones__timeline-dot(
+              data-index=idx,
+              class=idx === 0 ? 'is-active' : ''
+            )
+              ='\n'
+              span.milestones__timeline-year= item.years
+
+      .milestones__body
+        .milestones__list.js-milestones-carousel
+          each item in data.list
+            .milestones__item
+              .milestones__top
+                ='\n'
+                img.milestones__image(src='assets/img/dummy/'+ item.img, alt=item.title)/
+              .milestones__bottom
+                h3.milestones__title !{item.title}
+                p.milestones__desc !{item.desc}
+='\n'

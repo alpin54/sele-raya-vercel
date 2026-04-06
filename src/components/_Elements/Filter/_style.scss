@@ -1,0 +1,219 @@
+/* ==========================================================================
+   Report Card
+   ========================================================================== */
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  overflow: visible;
+  @include fade-in-loaded;
+  @include content-transition;
+  gap: 12px;
+
+  @include small {
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  &__row {
+    flex: 0 0 auto;
+    &--select {
+      width: 200px;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid color(black, 2);
+      background-color: color(neutral, 1);
+      border-radius: 8px;
+      padding: 9px 12px;
+      position: relative;
+      .form-control {
+        width: 100%;
+        position: static;
+      }
+      @include small {
+        width: 124px;
+        padding: 11px 10px;
+      }
+    }
+    &--search {
+      width: 240px;
+      @include medium {
+        flex: 1;
+      }
+      @include small {
+        flex: 1;
+        width: auto;
+      }
+      .form-control {
+        border: 1px solid color(black, 2);
+        background-color: color(neutral, 1);
+        border-radius: 8px;
+        & input {
+          background-color: transparent;
+          border: 0;
+          padding: 9px 12px;
+        }
+      }
+    }
+  }
+  &__mobile-trigger {
+    display: none;
+    @include small {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border: 1px solid color(black, 2);
+      background-color: color(neutral, 1);
+      border-radius: 8px;
+      padding: 11px 10px;
+      min-width: 124px;
+      outline: 0;
+      cursor: pointer;
+      @include font-size(caption);
+      color: color(neutral, 6);
+    }
+  }
+  &__desktop-selects {
+    display: flex;
+    gap: 12px;
+    @include small {
+      display: none;
+    }
+  }
+  &__panel {
+    display: none;
+    @include small {
+      position: fixed;
+      inset: 0;
+      z-index: zi(header) + 2;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-top: 48px;
+      background-color: rgba(color(black, 8), 0.24);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    &__box {
+      @include small {
+        width: 100%;
+        background-color: color(neutral, 1);
+        border-radius: 12px 12px 0 0;
+        transform: translateY(100%);
+        transition: transform 0.35s ease;
+      }
+    }
+    &__head {
+      display: none;
+      @include small {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px 12px;
+      }
+    }
+    &__title {
+      margin: 0;
+      @include font-size(body);
+      font-weight: fw(semibold);
+      color: color(neutral, 8);
+    }
+    &__close {
+      border: 0;
+      background-color: transparent;
+      padding: 0;
+      cursor: pointer;
+      color: color(neutral, 6);
+      @include font-size(caption);
+    }
+    &__body {
+      @include small {
+        padding: 0 24px;
+      }
+    }
+    &__actions {
+      display: none;
+      @include small {
+        display: block;
+        padding: 20px 24px 24px;
+      }
+    }
+    &__apply {
+      width: 100%;
+      border: 0;
+      border-radius: 8px;
+      padding: 11px 16px;
+      cursor: pointer;
+      @include font-size(body);
+      background-color: color(primary, 5);
+      color: color(neutral, 1);
+    }
+  }
+
+  &__group {
+    @include small {
+      padding: 4px 0 16px;
+      margin-bottom: 16px;
+      border-bottom: 1px solid color(neutral, 3);
+    }
+    &:last-child {
+      @include small {
+        margin-bottom: 0;
+      }
+    }
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    &__item {
+      @include small {
+        display: block;
+        padding: 8px 0;
+        @include font-size(body);
+        color: color(neutral, 6);
+        cursor: pointer;
+      }
+      &.is-selected {
+        @include small {
+          color: color(primary, 5);
+          font-weight: fw(medium);
+        }
+      }
+    }
+  }
+
+  &--grouped {
+    .filter__mobile-trigger {
+      @include small {
+        display: inline-flex;
+      }
+    }
+
+    .filter__panel {
+      @include small {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+      }
+    }
+
+    &.show-filters {
+      .filter__panel {
+        @include small {
+          opacity: 1;
+          visibility: visible;
+          pointer-events: auto;
+        }
+      }
+      .filter__panel__box {
+        @include small {
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}

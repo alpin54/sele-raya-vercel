@@ -1,0 +1,26 @@
+//-------------------------------------------------------------------------------
+  @name: belida-growth
+  -------------------------------------------------------------------------------//
+
+//belida-growth
+.belida-growth
+  .container
+    .belida-growth__inner
+      .belida-growth__text
+        h3.belida-growth__label= item.title
+        p.belida-growth__desc= item.desc
+        table.belida-growth__table
+          thead
+            tr
+              each head in item.table.head
+                th= head
+          tbody
+            each row in item.table.body
+              tr
+                each cell in row
+                  td= cell
+      .belida-growth__img
+        ='\n'
+        img.belida-growth__img-el(src=item.img alt=item.title)/
+
+='\n'

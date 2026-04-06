@@ -1,0 +1,70 @@
+//-------------------------------------------------------------------------------
+  @name: Csr Details
+  -------------------------------------------------------------------------------//
+
+// Csr Details
+.csr-details
+  - csrDetails = data || {};
+  .container
+    .csr-details__head
+      h1.csr-details__title !{csrDetails.title}
+      -
+        breadcrumbs = [
+          { name: "CSR", link: "csr.html" },
+          { name: "Environment", link: "csr-category.html" },
+          { name: "Sustaining Nature for Future Generations", link: "sustaining-nature.html" },
+        ];
+      include ../../_Elements/Breadcrumbs/html.pug
+    .csr-details__banner
+      ='\n'
+      img.csr-details__banner-img(src=csrDetails.banner.src alt=csrDetails.banner.alt)/
+    .csr-details__content
+      .csr-details__content-wr
+        .csr-details__content-wr__item
+          p.csr-details__content-wr__label Category
+          .csr-details__content-wr__value
+            ='\n'
+            img.csr-details__content-wr__value-icon(src=csrDetails.category.icon.src alt=csrDetails.category.icon.alt)/
+            span.csr-details__content-wr__value-text !{csrDetails.category.text}
+        .csr-details__content-wr__item
+          p.csr-details__content-wr__label Date
+          .csr-details__content-wr__value
+            ='\n'
+            img.csr-details__content-wr__value-icon(src=csrDetails.date.icon.src alt=csrDetails.date.icon.alt)/
+            span.csr-details__content-wr__value-text !{csrDetails.date.text}
+        .csr-details__content-wr__item
+          p.csr-details__content-wr__label Share
+          .csr-details__content-wr__value
+            a.csr-details__content-wr__value-link(href='#' )
+              ='\n'
+              i(class='sr-facebook')
+            a.csr-details__content-wr__value-link(href='#' )
+              ='\n'
+              i(class='sr-envelope-simple')
+            a.csr-details__content-wr__value-link(href='#' )
+              ='\n'
+              i(class='sr-instagram')
+            a.csr-details__content-wr__value-link(href='#' )
+              ='\n'
+              i(class='sr-x-logo')
+            a.csr-details__content-wr__value-link(href='#' )
+              ='\n'
+              i(class='sr-whatsapp')
+      .csr-details__content-text
+        | !{csrDetails.content}
+    .csr-details__recomendation
+      .csr-details__recomendation-head
+        h3.csr-details__recomendation-title
+          | !{csrDetails.recommendation.title}
+        ='\n'
+        a.btn.btn--primary.btn--icon(href=csrDetails.recommendation.btn.to)
+          ='\n'
+          span.btn__text
+            | !{csrDetails.recommendation.btn.text}
+            ='\n'
+            i.sr.sr-caret-right
+      .csr-details__recomendation-list
+        each card in csrDetails.recommendation.list
+          include ../CsrCard/html.pug
+
+  ='\n'

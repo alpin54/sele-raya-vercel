@@ -1,0 +1,20 @@
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Milestones';
+    page = 'milestones';
+
+//- Body
+block siteContent
+  //- Page Banner
+  include milestones/PageBanner.pug
+
+  //- Milestones Content
+  include milestones/Content.pug
+
+  
+
+
+

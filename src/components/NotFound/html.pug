@@ -1,0 +1,32 @@
+//-------------------------------------------------------------------------------
+  @name: Not Found Section
+  -------------------------------------------------------------------------------//
+
+-
+  data = {
+    title: '404',
+    desc: 'Somethings not right.',
+    link: {
+      to: "index.html",
+      text: "Back to Homepage",
+    }
+  }
+
+='\n'
+//.not-found
+.not-found
+  .container
+    .not-found__inner
+      ='\n'
+      //.not-found__text
+      .not-found__text
+        h1.not-found__title= data.title
+        p.not-found__desc= data.desc
+      //.not-found__button
+      .not-found__button
+        ='\n'
+        a.btn.btn--icon(href=data.link.to)
+          ='\n'
+          span.btn__text
+            | !{data.link.text}
+            i.fa-solid.fa-rotate-left

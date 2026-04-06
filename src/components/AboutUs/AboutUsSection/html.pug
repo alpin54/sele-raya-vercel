@@ -1,0 +1,38 @@
+//-------------------------------------------------------------------------------
+  @name: About Us
+  -------------------------------------------------------------------------------//
+
+//aboutUs
+.about-us
+  .about-us__inner
+    .about-us__img
+      ='\n'
+      img.about-us__img__el.desktop(src='assets/img/dummy/'+data.imgDekstop alt=data.title)/
+      ='\n'
+      img.about-us__img__el.mobile(src='assets/img/dummy/'+data.imgMobile alt=data.title)/
+    .about-us__content
+      .container
+        .about-us__content__box
+          .about-us__content__wrapp
+            h6.about-us__subtitle
+              | !{data.subtitle}
+            h2.about-us__title
+              | !{data.title}
+            p.about-us__desc
+              | !{data.desc}
+            .about-us__stats
+              each stat in data.stats
+                .about-us__stat
+                  h2.about-us__stat-num
+                    ='\n'
+                    span.js-count !{stat.num}
+                    span +
+                  p.about-us__stat-label #{stat.label}
+            ='\n'
+            a.btn.btn--secondary.btn--icon(href='#')
+              ='\n'
+              span.btn__text
+                | Read More
+                ='\n'
+                i.sr.sr-caret-right
+  ='\n'

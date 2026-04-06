@@ -1,0 +1,120 @@
+//-------------------------------------------------------------------------------
+  @name: Privacy Policy Section
+  -------------------------------------------------------------------------------//
+
+-
+  data = {
+    title: 'Privacy Policy',
+    desc: 'Welcome to Seleraya Group. We value your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, protect, and share your information when you visit our websites, use our services, visit our premises, or interact with us as a partner, supplier, or job applicant.',
+    content: `
+      <table>
+        <tr>
+          <td><h5>Information We Collect</h5></td>
+          <td>
+            <p>We collect information that is necessary for our business operations and to provide you with a secure experience:</p>
+            <ul>
+              <li>Identity & Contact Data: Name, email address, phone number, company affiliation, and professional position.</li>
+              <li>Technical & Usage Data: IP address, browser type, device characteristics, operating system, and data on how you navigate our website.</li>
+              <li>Recruitment Data: Information in CVs, cover letters, and references provided during job applications.</li>
+              <li>Facility Security Data: CCTV footage from our offices/field sites and visitor log details (name, arrival/departure times) for safety and security.</li>
+              <li>Financial Data: Bank details and transaction history (for partners and suppliers only).</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td><h5>How We Use Your Information</h5></td>
+          <td>
+            <p>Seleraya Group processes your data for specific, lawful purposes:</p>
+            <ul>
+              <li>Business Communication: Responding to inquiries, managing relationships with partners, and providing service updates.</li>
+              <li>Contractual Obligations: Performing agreements with suppliers, contractors, and clients.</li>
+              <li>Safety & Security: Protecting our personnel, physical assets, and digital infrastructure from unauthorized access or misuse.</li>
+              <li>Legal Compliance: Meeting regulatory requirements in the energy sector, tax obligations, and government reporting.</li>
+              <li>Website Improvement: Analyzing usage trends to enhance user experience and site functionality.</li>
+            </ul>
+          </td>
+        </tr>
+
+        <tr>
+          <td><h5>Legal Bases for Processing</h5></td>
+          <td>
+            <p>We rely on the following legal grounds to process your data:</p>
+            <ol>
+              <li>Contractual Necessity: To fulfill a contract we have with you.</li>
+              <li>Legitimate Interest: For business administration, security, and professional management.</li>
+              <li>Legal Obligation: To comply with applicable laws and regulations.</li>
+              <li>Consent: Where you have explicitly agreed to processing (e.g., subscribing to newsletters).</li>
+            </ol>
+          </td>
+        </tr>
+
+        <tr>
+          <td><h5>Data Retention</h5></td>
+          <td>
+            <p>We retain personal data only as long as necessary to fulfill the purposes for which it was collected:</p>
+            <ul>
+              <li>Contractual Records: Typically kept for 10 years after the relationship ends for legal and audit purposes.</li>
+              <li>Security Footage (CCTV): Retained for a short period (e.g., 14–30 days) unless required for an ongoing investigation.</li>
+              <li>Job Applications: Retained for the duration of the recruitment process, or up to 2 years if you consent to join our talent pool.</li>
+              <li>Website Logs: Deleted or de-identified after 1 year.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><h5>Information Sharing & Disclosure</h5></td>
+          <td>
+            <p>Seleraya Group does not sell or rent your personal data. We only share information with:</p>
+            <ul>
+              <li>Service Providers: Trusted third parties providing IT hosting, cloud storage, or professional consulting, all of whom are contractually bound to protect your data.</li>
+              <li>Group Affiliates: Internal entities within Seleraya Group for administrative and reporting purposes.</li>
+              <li>Legal Authorities: When required by law, court order, or a request from government regulatory bodies.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><h5>Data Security</h5></td>
+          <td>
+            <p>We implement robust technical and organizational measures (including encryption and access controls) to protect your data. While we strive for maximum protection, please be aware that no method of transmission over the internet is 100% secure.</p>
+          </td>
+        </tr>
+        <tr>
+          <td><h5>Your Privacy Rights</h5></td>
+          <td>
+            <p>Depending on your location, you may have the following rights:</p>
+            <ul>
+              <li>Access: Request a copy of the data we hold about you.</li>
+              <li>Correction: Request updates to inaccurate or incomplete information.</li>
+              <li>Erasure: Request the deletion of your data under certain conditions.</li>
+              <li>Withdrawal: Withdraw your consent for data processing at any time.</li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><h5>Contact Us</h5></td>
+          <td>
+            <p>For questions regarding this policy or to exercise your rights, please contact our Data</p>
+            <p>Privacy Team:</p>
+            <ul>
+              <li>Email: help@seleraya.co.id</li>
+              <li>Address: Graha Sele Building</br>
+              Jl. Tebet Raya No. 8-10</br>
+              Tebet Barat, Tebet, Jakarta Selatan</br>
+               DKI Jakarta 12810</li>
+            </ul>
+
+          </td>
+        </tr>
+      </table>
+    `
+  }
+='\n'
+//.privacy-policy
+.privacy-policy
+  .container
+    .privacy-policy__inner
+      .privacy-policy__head
+        h1.privacy-policy__title= data.title
+        p.privacy-policy__desc= data.desc
+      .privacy-policy__content
+        | !{data.content}

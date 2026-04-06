@@ -1,0 +1,17 @@
+//-------------------------------------------------------------------------------
+  @name: Businesses Vision & Mission
+  -------------------------------------------------------------------------------//
+
+//businesses-vm
+.businesses-vm
+  .container
+    .businesses-vm__list
+      each item in data
+        .businesses-vm__item
+          .businesses-vm__icon
+            img.businesses-vm__icon__el(src=item.img alt=item.title)/
+          .businesses-vm__text
+            h3.businesses-vm__title= item.title
+            p.businesses-vm__desc= item.desc
+
+='\n'

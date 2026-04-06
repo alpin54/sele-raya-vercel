@@ -1,0 +1,12 @@
+/* ==========================================================================
+   Variable: Shadow
+   ========================================================================== */
+
+$shadow: (
+  0: 0 2px 24px map-get($colors, shadow),
+  1: 0 2px 32px map-get($colors, shadow-hover),
+  2: 0 4px 40px map-get($colors, shadow),
+  3: 0 4px 48px map-get($colors, shadow-hover),
+  4: 0 4px 64px map-get($colors, shadow),
+  5: 0 4px 72px map-get($colors, shadow-hover),
+);

@@ -1,0 +1,33 @@
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'Home';
+    page = 'home'
+
+//- Body
+block siteContent
+  //- Hero Banner
+  include home/HeroBanner.pug
+
+  //- Businesses
+  include home/Businesses.pug
+
+  //- About Us
+  include home/AboutUsSection.pug
+
+  //- Awards
+  //- include home/Awards.pug
+
+  //- Milestones
+  include home/Milestones.pug
+
+  //- //- Csr Section
+  include home/CsrSection.pug
+
+  //- //- Career Section
+  include home/CareerSection.pug
+
+  //- //- News Section
+  include home/NewsSection.pug

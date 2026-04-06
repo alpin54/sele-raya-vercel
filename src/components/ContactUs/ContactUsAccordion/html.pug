@@ -1,0 +1,47 @@
+//-------------------------------------------------------------------------------
+  @name: Contact Us Accordion
+//-------------------------------------------------------------------------------
+
+//contact-accordion
+.contact-acd
+  .contact-acd__inner
+    each item in data
+      .contact-acd__item
+        .container
+          .contact-acd__box
+            .contact-acd__icon
+              ='\n'
+              i.sr(class='sr-' + item.icon)
+            .contact-acd__text
+              h5.contact-acd__title= item.title
+            .contact-acd__icon-toggle
+              ='\n'
+              i.sr.sr-add
+              ='\n'
+              i.sr.sr-mines
+          .contact-acd__menu
+            each menu in item.menu
+              .contact-acd__menu-item
+                if menu.type === 'map'
+                  .contact-acd__menu-map
+                    .contact-acd__menu-map_icon
+                      ='\n'
+                      i.sr(class='sr-' + menu.icon)
+                      ='\n'
+                    .contact-acd__menu-label
+                      p.contact-acd__menu-label-text
+                        each line, idx in menu.label
+                          | #{idx !== 0 ? '\n' : ''}#{line}
+                      .contact-acd__menu-map-link
+                        ='\n'
+                        a(href=menu.href target='_blank' rel='noopener noreferrer') Get Directions
+                        i.sr.sr-caret-right
+                else
+                  ='\n'
+                  a.contact-acd__menu-link(href=menu.href)
+                    ='\n'
+                    i.sr(class='sr-' + menu.icon)
+                    ='\n'
+                    p.contact-acd__menu-link-text
+                      each line, idx in menu.label
+                        | #{idx !== 0 ? '\n' : ''}#{line}

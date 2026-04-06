@@ -1,0 +1,158 @@
+/* ==========================================================================
+   About Highlight
+   ========================================================================== */
+
+.about-highlight {
+  padding: 96px 0 56px;
+  @include medium {
+    padding: 64px 0 32px;
+  }
+  @include x-small {
+    padding: 40px 0 24px;
+  }
+  &__inner {
+    display: flex;
+    @include medium {
+      flex-direction: column;
+    }
+  }
+  &__content {
+    @include fade-in-loaded;
+    margin-right: 72px;
+    max-width: 560px;
+    @include medium {
+      max-width: 100%;
+      margin-right: 0;
+      margin-bottom: 24px;
+    }
+  }
+  &__image {
+    @include fade-in-loaded;
+    flex: 1;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    overflow: hidden;
+    @include medium {
+      flex: none;
+      height: 400px;
+    }
+    @include x-small {
+      height: 264px;
+    }
+    @include retina {
+      @include content-transition;
+    }
+    &-el {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+  }
+  &__subtitle {
+    @include font-size(h6);
+    font-weight: fw(medium);
+    color: color(primary, 5);
+    margin-bottom: 12px;
+    @include x-small {
+      @include font-size(body);
+      margin-bottom: 8px;
+    }
+  }
+  &__title {
+    @include font-size(h2);
+    font-weight: fw(bold);
+    color: color(neutral, 9);
+    margin-bottom: 24px;
+    @include medium {
+      @include font-size(h3);
+    }
+    @include x-small {
+      @include font-size(h4);
+      margin-bottom: 8px;
+    }
+
+  }
+  &__desc {
+    @include font-size(h6);
+    color: color(neutral, 7);
+    margin-bottom: 40px;
+    @include x-small {
+      @include font-size(body);
+      margin-bottom: 24px;
+    }
+  }
+  &__stats {
+    display: flex;
+    margin-left: -40px;
+
+    @include medium {
+      margin-left: -24px;
+
+    }
+    @include x-small {
+      margin-left: -18px;
+
+    }
+  }
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    position: relative;
+    @include medium {
+      padding: 0 24px;
+    }
+    @include x-small {
+      padding: 0 18px;
+    }
+    &:last-child {
+      padding-right: 0;
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 56px;
+      background-color: color(neutral, 4);
+      transform: translateY(-50%);
+
+    }
+    &:nth-child(1) {
+      .about-highlight__stat-num {
+        & span:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+    &-num {
+      @include font-size(h2);
+      font-weight: fw(semibold);
+      color: color(primary, 5);
+      margin: 0;
+      @include x-small {
+        @include font-size(h4);
+      }
+    }
+    &-label {
+      @include font-size(body);
+      color: color(neutral, 9);
+      font-weight: fw(regular);
+      margin: 0;
+      @include x-small {
+        @include font-size(caption);
+      }
+      @include retina {
+        @include font-size(small);
+      }
+    }
+  }
+
+}

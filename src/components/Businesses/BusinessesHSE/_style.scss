@@ -1,0 +1,189 @@
+/* ==========================================================================
+   Business hse
+   ========================================================================== */
+
+.businesses-hse {
+  $bh: &;
+  padding: 96px 0 104px;
+  overflow: hidden;
+  background-color: color(primary, 1);
+  @include medium {
+    padding: 64px 0 72px;
+  }
+  @include small {
+    padding: 40px 0 48px;
+  }
+  &__head {
+    max-width: 600px;
+    margin-bottom: 56px;
+    @include fade-in-loaded;
+    @include content-transition;
+    @include medium {
+      margin-bottom: 48px;
+    }
+    @include medium {
+      margin-bottom: 40px;
+    }
+    @include small {
+      margin-bottom: 32px;
+    }
+
+  }
+  &__title {
+    @include font-size(h2);
+    font-weight: fw(semibold);
+    color: color(neutral, 9);
+    @include medium {
+      @include font-size(h3);
+    }
+    @include small {
+      @include font-size(h4);
+    }
+  }
+  &__subtitle {
+    p {
+      @include font-size(h6);
+      color: color(neutral, 6);
+      margin-bottom: 0;
+    }
+  }
+  &__body {
+    @include fade-in-loaded;
+    @include content-transition;
+    @include medium {
+      @include radius(5);
+      overflow: hidden;
+    }
+  }
+  &__item {
+    position: relative;
+    display: flex;
+    height: 100%;
+    padding: 32px;
+    background-color: color(neutral, 50);
+    min-height: 440px;
+    border-right: 1px solid color(neutral, 3);
+    @include medium {
+      flex-direction: column;
+      min-height: initial;
+      border-right: none;
+      border-bottom: 1px solid color(neutral, 3);
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    width: 36px;
+    height: 36px;
+    @include radius(3);
+    overflow: hidden;
+    background-color: color(primary, 5);
+    margin-right: 24px;
+    @include medium {
+      margin: 0 0 24px;
+    }
+    &__el {
+      display: block;
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+  }
+  &__label {
+    @include font-size(h5);
+    font-weight: fw(semibold);
+    color: color(neutral, 7);
+    margin-bottom: 6px;
+  }
+  &__desc {
+    @include font-size(body);
+    color: color(neutral, 6);
+    margin-bottom: 0;
+  }
+  &__number {
+    position: absolute;
+    bottom: 32px;
+    right: 32px;
+    @include font-size(number3);
+    font-style: italic;
+    margin-bottom: 0;
+    color: color(primary, 5);
+    @include medium {
+      @include font-size(h1);
+      bottom: auto;
+      top: 16px;
+    }
+  }
+  .owl-carousel {
+    display: block;
+    .owl-stage-outer {
+      overflow: visible;
+    }
+    .owl-item {
+      overflow: hidden;
+      &:first-child {
+        border-radius: 16px 0 0 16px;
+      }
+      &:last-child {
+        border-radius: 0 16px 16px 0;
+        #{$bh}__item {
+          border-right: none;
+        }
+      }
+    }
+    .owl-nav {
+      position: absolute;
+      top: -96px;
+      justify-content: space-between;
+      right: 0;
+      display: flex;
+      align-items: center;
+      pointer-events: none;
+      z-index: 4;
+      .owl-prev,
+      .owl-next {
+        position: relative;
+        display: block;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        padding: 0;
+        margin: 0;
+        z-index: 3;
+        font-size: 20px;
+        pointer-events: visible;
+        background-color: color(neutral, 50);
+        border: 1px solid color(primary, 5);
+        color: color(primary, 5);
+        transition: background-color 0.3s ease;
+        &:hover:not(.disabled) {
+          background-color: color(primary, 5);
+          color: color(neutral, 50);
+          border: 1px solid color(primary, 5);
+        }
+        @include small {
+          width: 32px;
+          height: 32px;
+        }
+        &.disabled {
+          border-color: color(neutral, 3);
+          background-color: color(neutral, 3);
+          color: color(neutral, 6);
+          cursor: not-allowed;
+        }
+      }
+      .owl-prev {
+        margin-right: 10px;
+
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+/* ==========================================================================
+   About Us Section
+   ========================================================================== */
+
+.about-us {
+  height: 648px;
+  @include medium {
+    height: 620px;
+  }
+  @include x-small {
+    height: 600px;
+  }
+  &__inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(95.21deg, rgba(17, 17, 17, 0) 6.67%, rgba(17, 17, 17, 0.4) 92.08%);
+      @include medium {
+        background: linear-gradient(180deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.32) 44.01%, rgba(17, 17, 17, 0.56) 100%);
+
+      }
+    }
+    &__el {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: bottom;
+      &.mobile {
+        display: none;
+        @include x-small {
+          display: block;
+        }
+      }
+      &.desktop {
+        @include x-small {
+          display: none;
+        }
+      }
+
+    }
+  }
+  &__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding-top: 104px;
+    @include fade-in-loaded;
+    @include content-transition;
+    @include x-small {
+      padding-top: 0;
+      padding-bottom: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    &__box {
+      display: flex;
+      justify-content: flex-end;
+      @include medium {
+        justify-content: flex-start;
+      }
+    }
+
+    &__wrapp {
+      max-width: 584px;
+      @include x-small {
+        max-width: 100%;
+      }
+    }
+  }
+  &__subtitle {
+    @include font-size(h6);
+    font-weight: fw(medium);
+    color: color(neutral, 50);
+    margin-bottom: 12px;
+    @include x-small {
+      @include font-size(body);
+      margin-bottom: 8px;
+    }
+  }
+  &__title {
+    @include font-size(h2);
+    font-weight: fw(bold);
+    color: color(neutral, 50);
+    margin-bottom: 24px;
+    @include medium {
+      @include font-size(h3);
+    }
+    @include x-small {
+      @include font-size(h4);
+      margin-bottom: 8px;
+    }
+
+  }
+  &__desc {
+    @include font-size(h6);
+    color: color(neutral, 50);
+    font-weight: fw(medium);
+    margin-bottom: 16px;
+    @include x-small {
+      @include font-size(body);
+      @include multiline-ellipsis(3);
+      margin-bottom: 8px;
+    }
+  }
+  &__stats {
+    display: flex;
+    margin-left: -40px;
+    margin-bottom: 48px;
+    @include medium {
+      margin-left: -24px;
+      margin-bottom: 24px;
+    }
+    @include x-small {
+      margin-left: -18px;
+      margin-bottom: 16px;
+    }
+  }
+  &__stat {
+    display: flex;
+    flex-direction: column;
+    padding: 0 40px;
+    position: relative;
+    @include medium {
+      padding: 0 24px;
+    }
+    @include x-small {
+      padding: 0 18px;
+    }
+    &:last-child {
+      padding-right: 0;
+      &::after {
+        display: none;
+      }
+    }
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      width: 1px;
+      height: 56px;
+      background-color: rgba(color(neutral, 50), 0.24);
+      transform: translateY(-50%);
+
+    }
+    &:nth-child(1) {
+      .about-us__stat-num {
+        & span:nth-child(2) {
+          display: none;
+        }
+      }
+    }
+    &-num {
+      @include font-size(h2);
+      font-weight: fw(semibold);
+      color: color(neutral, 50);
+      margin: 0;
+      @include x-small {
+        @include font-size(h4);
+      }
+    }
+    &-label {
+      @include font-size(body);
+      color: color(neutral, 50);
+      font-weight: fw(regular);
+      margin: 0;
+      @include x-small {
+        @include font-size(caption);
+      }
+    }
+  }
+
+}

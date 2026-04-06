@@ -1,0 +1,29 @@
+//-------------------------------------------------------------------------------
+  @name: Home
+  -------------------------------------------------------------------------------//
+
+extends ../templates/Default/html.pug
+
+//- Head
+block siteHeader
+  -
+    siteTitle = 'PT Sele Raya Sejati';
+    page = 'sejati'
+
+//- Body
+block siteContent
+  //- Sejati Banner
+  include businesses/sejati/SejatiBanner.pug
+
+  //- Sejati Overview
+  include businesses/sejati/SejatiOverview.pug
+
+  //- Sejati Number
+  include businesses/sejati/SejatiNumber.pug
+
+  //- Sejati Key
+  include businesses/sejati/SejatiKey.pug
+
+  //- Sejati Project Overview
+  include businesses/sejati/SejatiOverviewProject.pug
+

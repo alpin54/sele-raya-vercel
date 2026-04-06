@@ -1,0 +1,20 @@
+//-------------------------------------------------------------------------------
+  @name: Page Banner
+  -------------------------------------------------------------------------------//
+
+='\n\n'
+- bannerModifier = data && data.banner && data.banner.modifier ? 'page-banner--' + data.banner.modifier : '';
+- bannerClassName = data && data.banner && data.banner.className ? data.banner.className : '';
+//.page-banner
+.page-banner(class=[bannerModifier, bannerClassName])
+  .page-banner__img
+    ='\n'
+    img.page-banner__img__el.desktop(src=data.banner.imageDesktop alt=data.banner.title)/
+    ='\n'
+    img.page-banner__img__el.mobile(src=data.banner.imageMobile alt=data.banner.title)/
+  .page-banner__content
+    .container
+      .page-banner__text
+        h6.page-banner__subtitle= data.banner.subtitle
+        h3.page-banner__title= data.banner.title
+        p.page-banner__desc= data.banner.description

@@ -1,0 +1,27 @@
+//-------------------------------------------------------------------------------
+  @name: About Highlight
+  -------------------------------------------------------------------------------//
+
+//aboutUs
+.about-highlight
+  .container
+    .about-highlight__inner
+      .about-highlight__content
+        h6.about-highlight__subtitle
+          | !{data.subtitle}
+        h2.about-highlight__title
+          | !{data.title}
+        p.about-highlight__desc
+          | !{data.desc}
+        .about-highlight__stats
+          each stat in data.stats
+            .about-highlight__stat
+              h2.about-highlight__stat-num
+                ='\n'
+                span.js-count !{stat.num}
+                span +
+              p.about-highlight__stat-label #{stat.label}
+      .about-highlight__image
+        ='\n'
+        img.about-highlight__image-el(src='assets/img/dummy/'+data.img alt=data.title)/
+  ='\n'

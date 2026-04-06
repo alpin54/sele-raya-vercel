@@ -1,0 +1,324 @@
+//-------------------------------------------------------------------------------
+  @name: Header
+//-------------------------------------------------------------------------------
+
+// Data (letakkan di atas, cukup satu kali!)
+-
+  const navMenus = [
+    {
+      text: 'About',
+      href: '/about-us.html',
+      page: 'abouts',
+      submenu: {
+        type: 'panel',
+        image: 'assets/img/dummy/about-us.png',
+        imageCaption: 'Innovating for People and Planet.',
+        items: [
+          {
+            icon: 'chart-bar',
+            title: 'Key Highlight',
+            desc: 'Powering National Growth Since 1974',
+            href: '/about/key-highlight'
+          },
+          {
+            icon: 'rocket',
+            title: 'Vision, Mission & Values',
+            desc: 'Leading Energy with Purpose & Integrity',
+            href: '/about/vision-mission'
+          },
+          {
+            icon: 'tree-structure',
+            title: 'Our Team',
+            desc: 'Driven by Expertise, United by Purpose',
+            href: '/about/team'
+          },
+          {
+            icon: 'link',
+            title: 'Beyond Energy',
+            desc: 'Investing in a Smarter Digital Future',
+            href: '/about/beyond-energy'
+          },
+        ]
+      }
+    },
+    {
+      text: 'Businesses',
+      href: '/',
+      page: 'businesses',
+      submenu: {
+        type: 'mega',
+        groups: [
+
+          // COLUMN 1
+          {
+            sections: [
+              {
+                title: 'Sele Raya Energy',
+                items: [
+                  {
+                    icon: 'fire',
+                    title: 'PT Sele Raya Belida',
+                    desc: 'Operates Belida Block, focusing on oil and gas',
+                    href: '/businesses-belida.html'
+                  },
+                  {
+                    icon: 'lightning',
+                    title: 'PT Sele Raya Energy',
+                    desc: 'Manages assets to strengthen national security',
+                    href: '/businesses-energy.html'
+                  },
+                  {
+                    icon: 'factory',
+                    title: 'PT Sele Raya Sejati',
+                    desc: 'Advances upstream development projects',
+                    href: '/businesses-sejati.html'
+                  }
+                ]
+              }
+            ]
+          },
+
+          // COLUMN 2
+          {
+            sections: [
+              {
+                title: 'Sele Raya Mining',
+                items: [
+                  {
+                    icon: 'boat',
+                    title: 'PT Sele Raya Aryasatya',
+                    desc: 'Specializes in offshore tin mining via tech',
+                    href: 'businesses-aryasatya.html'
+                  },
+                  {
+                    icon: 'sketch-logo',
+                    title: 'PT Sele Raya Mining',
+                    desc: 'Provides coal supply and offtake for power',
+                    href: 'businesses-mining.html'
+                  }
+                ]
+              },
+              {
+                title: 'Sele Raya Venture',
+                items: [
+                  {
+                    icon: 'chart-line-up',
+                    title: 'Investidea Ventures',
+                    desc: 'Drives growth through strategic investments',
+                    href: 'businesses-investidea-ventures.html'
+                  }
+                ]
+              }
+            ]
+          },
+
+          // COLUMN 3
+          {
+            sections: [
+              {
+                title: 'Sele Raya Agriculture',
+                items: [
+                  {
+                    icon: 'grains',
+                    title: 'PT Sele Raya Agri',
+                    desc: 'Sustainable plantation asset management',
+                    href: 'businesses-agri.html'
+                  },
+                  {
+                    icon: 'clover',
+                    title: 'PT Amindo Wana Persada',
+                    desc: 'Operates forestry projects balancing productivity',
+                    href: 'businesses-amindo-wana-persada.html'
+                  }
+                ]
+              },
+              {
+                title: 'FMCG',
+                items: [
+                  {
+                    icon: 'lab',
+                    title: 'Sele Ingredients',
+                    desc: 'Manufactures high quality ingredients, goods',
+                    href: 'businesses-ingredients.html'
+                  }
+                ]
+              }
+            ]
+          }
+
+        ]
+      }
+    },
+    {
+      text: 'CSR',
+      href: '/csr.html',
+      page: 'csr',
+      submenu: {
+        type: 'panel',
+        image: 'assets/img/dummy/csr.png',
+        imageCaption: 'Sustainability in Action',
+        items: [
+          {
+            icon: 'cactus',
+            title: 'Environment',
+            desc: 'Protecting nature through sustainable operations',
+            href: '/csr/#environment'
+          },
+          {
+            icon: 'hand-heart',
+            title: 'Social',
+            desc: 'Creating opportunities for local communities',
+            href: '/csr/#social'
+          },
+          {
+            icon: 'scales',
+            title: 'Governance',
+            desc: 'Ensuring integrity through accountable leadership',
+            href: '/csr/#governance'
+          }
+        ]
+      }
+    },
+    { text: 'News', href: '/news.html', page: 'news' },
+    { text: 'Awards', href: '/awards.html', page: 'awards' },
+    { text: 'Milestones', href: '/milestones.html', page: 'milestones' },
+    { text: 'Career', href: '/career.html', page: 'career' },
+  ];
+
+  const contacts = [
+    {
+      icon: 'cash-register',
+      label: '021-83703612',
+      type: 'phone',
+      href: 'tel:02183703612'
+    },
+    {
+      icon: 'phone',
+      label: '021-83703608',
+      type: 'wa',
+      href: 'https://wa.me/622183703608'
+    },
+    {
+      icon: 'email',
+      label: 'help@seleraya.co.id',
+      type: 'email',
+      href: 'mailto:help@seleraya.co.id'
+    },
+  ];
+
+//.header
+div(class= headerStill ? 'header header--still' : 'header')
+  .container
+    .header__inner
+      // Logo
+      .header__logo
+        ='\n'
+        a.header__logo__link(href='/')
+          ='\n'
+          img.header__logo__img(src='assets/img/logo/logo-secondary.png', alt='Sele Raya')/
+          ='\n'
+          img.header__logo__img.header__logo__img--white(src='assets/img/logo/logo-primary.png', alt='Sele Raya')/
+
+      .header__wrapper
+        .header__top
+          .header__top-info
+            each info in contacts
+              .header__top-info__item
+                ='\n'
+                a.header__top-info__link(
+                  href=info.href,
+                  target=(info.type==='wa' ? '_blank' : false),
+                  rel=(info.type==='wa' ? 'noopener noreferrer' : false)
+                )
+                  ='\n'
+                  i.header__top-info__icon(class='sr sr-'+info.icon)
+                  |&nbsp;
+                  = info.label
+
+        // -------- MENU NAVIGATION --------
+        nav.header__main
+          div.header__main-nav(class=menuOpen ? 'is-open' : '')
+            each menu, i in navMenus
+              .header__main-nav__item(
+                class={
+                  'header__main-nav__item--has-sub': !!menu.submenu,
+                  'header__main-nav__item--active': menu.page == page
+                })
+                ='\n'
+                a.header__main-nav__link(
+                  href=menu.href,
+                  aria-haspopup=!!menu.submenu,
+                  aria-expanded=!!menuOpen && menu.submenu ? 'true' : 'false')
+                  = menu.text
+                if menu.submenu && menu.submenu.type == 'panel'
+                  .header__submenu
+                    .header__submenu__wrapp
+                      .header__submenu__img
+                        ='\n'
+                        img(src=menu.submenu.image, alt=menu.text)
+                        ='\n'
+                        span.header__submenu__img-caption= menu.submenu.imageCaption
+                          ='\n'
+                          i.sr.sr-caret-right
+                        ='\n'
+                        a.header__submenu__link(href=menu.href)
+                      .header__submenu__list
+                        each sub in menu.submenu.items
+                          .header__submenu__item
+                            .header__submenu__icon
+                              ='\n'
+                              i.header__submenu__icon__el(class='sr sr-'+sub.icon)
+                            .header__submenu__detail
+                              h6.header__submenu__title= sub.title
+                              p.header__submenu__desc= sub.desc
+                            ='\n'
+                            a.header__submenu__link(href=sub.href)
+                else if menu.submenu && menu.submenu.type == 'mega'
+                  .header__submenu
+                    .header__submenu--businesses
+                      each group in menu.submenu.groups
+                        .header__submenu__column
+                          each section in group.sections
+                            .header__submenu__section
+                              h6.header__submenu--businesses-title= section.title
+                              .header__submenu--businesses-list
+                                each sub in section.items
+                                  .header__submenu--businesses-item
+                                    .header__submenu__icon
+                                      ='\n'
+                                      i.header__submenu__icon__el(class='sr sr-'+sub.icon)
+                                    .header__submenu__detail
+                                      h6.header__submenu__title= sub.title
+                                      p.header__submenu__desc= sub.desc
+                                    ='\n'
+                                    a.header__submenu__link(href=sub.href)
+          .header__lang
+            ='\n'
+            a.header__lang__text(href='#' title="Change to English Version")
+              ='\n'
+              span.btn__text EN
+
+          .header__top-cta
+            ='\n'
+            a(href='/contact')
+              ='\n'
+              span.btn__text
+                | Contact
+                ='\n'
+                i.sr.sr-caret-right
+
+      //- Header Mobile Menu
+      .header__mobile__menu
+        .header__lang.header__lang__mobile
+          ='\n'
+          a.header__lang__text(href='#' title="Change to English Version")
+            ='\n'
+            span.btn__text EN
+        .header__burger-menu
+          button.header__burger-menu__btn.js-toggle-menu(
+            type="button", aria-label="Open menu"
+          )
+            ='\n'
+            span.header__burger-menu__bar
+            ='\n'
+            span.header__burger-menu__bar

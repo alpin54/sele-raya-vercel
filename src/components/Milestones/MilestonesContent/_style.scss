@@ -1,0 +1,247 @@
+/* ==========================================================================
+   Milestones Content
+   ========================================================================== */
+
+.milestones-pc {
+  $mpc: &;
+  &__list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1px;
+      height: 100%;
+      background-color: color(neutral, 5);
+      z-index: 0;
+      @include medium {
+        left: 156px;
+      }
+      @include small {
+        left: 90px;
+      }
+    }
+  }
+  &__item {
+    @include content-transition;
+    @include fade-in-loaded;
+    position: relative;
+    z-index: 1;
+    padding-top: 80px;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 118px;
+      left: 50%;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: color(primary, 5);
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      @include medium {
+        position: absolute;
+        top: 76px;
+        left: 156px;
+        transform: translate(-50%, -50%);
+      }
+      @include small {
+        position: absolute;
+        top: 68px;
+        left: 90px;
+        transform: translate(-50%, -50%);
+      }
+    }
+    
+    &--no-image {
+      #{$mpc}__content-text {
+        padding-right: 15px;
+        @include medium {
+          padding-right: 0;
+        }
+      }
+      &:nth-child(odd) {
+        #{$mpc}__content-text {
+          padding-left: 15px;
+          padding-right: 0;
+          @include medium {
+            padding-left: 0;
+          }
+        }
+      }
+    }
+    &:last-child {
+      padding-bottom: 80px;
+      @include medium {
+        padding-bottom: 56px;
+      }
+      @include small {
+        padding-bottom: 40px;
+      }
+    }
+
+    @include medium {
+      display: flex;
+      align-items: flex-start;
+      padding-top: 56px;
+    }
+    @include small {
+      padding-top: 40px;
+    }
+    &:nth-child(odd) {
+      #{$mpc} {
+        &__year {
+          left: auto;
+          right: calc(50% + 12px);
+          @include medium {
+            right: auto;
+            left: 0;
+          }
+        }
+        &__content {
+          flex-direction: row-reverse;
+          @include medium {
+            flex-direction: initial;
+          }
+        }
+        &__img {
+          justify-content: flex-end;
+          margin-left: 0 !important;
+          margin-right: 30px;
+          @include medium {
+            justify-content: flex-start;
+            margin-right: 0;
+          }
+        }
+        &__content {
+          &-text {
+            align-items: flex-start;
+            text-align: left;
+            @include medium {
+              align-items: flex-start;
+              text-align: left;
+            }
+          }
+        }
+      }
+
+    }
+  
+  }
+  &__year {
+    position: absolute;
+    top: 80px;
+    left: calc(50% + 12px);
+    @include medium {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin-right: 24px;
+      
+    }
+    &-el {
+      font-size: 80px;
+      line-height: 114px;
+      font-weight: fw(semibold);
+      color: color(primary, 5);
+      margin: 0;
+      @include medium {
+        font-size: 64px;
+        line-height: 72px;
+      }
+      @include small {
+        font-size: 32px;
+        line-height: 46px;
+      }
+    }
+  }
+  &__content {
+    display: flex;
+    @include medium {
+      display: block;
+      margin-left: 24px;
+      width: 100%;
+    }
+    &-text {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      padding-top: 16px;
+      text-align: right;
+      @include medium {
+        width: 100%;
+        padding-top: 0;
+        align-items: flex-start;
+        text-align: left;
+      }
+    }
+    #{$mpc}__img {
+      width: 50%;
+      display: flex;
+      margin-top: 70px;
+      justify-content: flex-start;
+      margin-left: 30px;
+      @include medium {
+        width: 100%;
+        margin-top: 20px;
+        margin-left: 0;
+        justify-content: flex-start;
+      }
+      @include small {
+        margin-top: 16px;
+      }
+      &_el {
+        display: block;
+        width: 320px;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 12px;
+        overflow: hidden;
+        @include small {
+          width: 100%;
+          height: 152px;
+        }
+      }
+    }
+  }
+  &__title, &__desc {
+    max-width: 480px;
+    @include medium {
+      max-width: 100%;
+    }
+  }
+  &__title {
+    @include font-size(h3);
+    font-weight: fw(regular);
+    color: color(neutral, 7);
+    margin-bottom: 16px;
+    @include medium {
+      @include font-size(h4);
+      margin-bottom: 8px;
+    }
+    @include small {
+      @include font-size(h6);
+      font-weight: fw(medium);
+      margin-bottom: 4px;
+    }
+  }
+  &__desc {
+    @include font-size(body);
+    color: color(neutral, 7);
+    margin-bottom: 0;
+    & p {
+      @include font-size(body);
+      color: color(neutral, 7);
+      margin-bottom: 0;
+    }
+  }
+
+}
