@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="refresh" content="900" />
+  <meta http-equiv="X-UA-Compatible" content="IE=9" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no,minimal-ui" />
+
+  <!-- primary information-->
+  <title>PT Sele Raya Belida - Website Sele Raya</title>
+  <meta name="description" content="PT Sele Raya Belida - Website Sele Raya" />
+  <meta name="keywords" content="PT Sele Raya Belida, sele raya website" />
+
+  <!-- ie fix for html5 tags--><!--[if lt IE 9]><script src='http://html5shiv.googlecode.com/svn/trunk/html5.js'></script><![endif]-->
+
+  <!-- author-->
+  <meta name="author" content="Arete Studio" />
+  <meta name="copyright" content="2026 Sele Raya Kreasi. All Right Reserved" />
+
+  <!-- user agent crawler-->
+  <meta name="robots" content="index, follow" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="googlebot-news" content="index, follow" />
+  <meta name="msnbot" content="index, follow" />
+  <meta name="webcrawlers" content="index, follow" />
+  <meta name="spiders" content="index, follow" />
+
+  <!-- canonical-->
+  <link rel="canonical" href="https://www.sele-raya.id" />
+
+  <!-- og (google, facebook, linkedin, slack, discord, etc)-->
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="PT Sele Raya Belida - Website Sele Raya" />
+  <meta property="og:description" content="PT Sele Raya Belida - Website Sele Raya" />
+  <meta property="og:url" content="https://www.sele-raya.id" />
+  <meta property="og:site_name" content="sele-raya.id" />
+  <meta property="og:image" content="assets/img/default/og-facebook.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+
+  <!-- twitter card-->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="PT Sele Raya Belida - Website Sele Raya" />
+  <meta name="twitter:description" content="PT Sele Raya Belida - Website Sele Raya" />
+  <meta name="twitter:site" content="@bilik_id" />
+  <meta name="twitter:site:id" content="@bilik_id" />
+  <meta name="twitter:domain" content="sele-raya.id" />
+  <meta name="twitter:url" content="https://www.sele-raya.id" />
+  <meta name="twitter:image:src" content="assets/img/default/twitter-card.jpg" />
+  <meta name="twitter:creator" content="@bilik_id" />
+
+  <!-- ============ icon ============--><!-- web favicon-->
+  <link rel="shortcut icon" href="assets/img/homescreen/favicon.ico" />
+
+  <!-- android add to home screen-->
+  <link rel="manifest" href="assets/js/data/manifest.json" />
+  <meta name="application-name" content="Sele Raya" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="theme-color" content="#fa759f" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/homescreen/favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/homescreen/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/img/homescreen/favicon-96x96.png" />
+  <link rel="icon" type="image/png" sizes="144x144" href="assets/img/homescreen/android-icon-144x144.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/homescreen/android-icon-192x192.png" />
+
+  <!-- windows microsoft-->
+  <meta name="msapplication-TileColor" content="#fa759f" />
+  <meta name="msapplication-TileImage" content="assets/img/homescreen/ms-icon-144x144.png" />
+
+  <!-- apple add to home screen-->
+  <meta name="apple-mobile-web-app-title" content="Sele Raya" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="#fa759f" />
+  <link rel="apple-touch-icon" href="assets/img/homescreen/apple-icon.png" />
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/img/homescreen/apple-icon-57x57.png" />
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/img/homescreen/apple-icon-60x60.png" />
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/homescreen/apple-icon-72x72.png" />
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/img/homescreen/apple-icon-76x76.png" />
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/img/homescreen/apple-icon-114x114.png" />
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/img/homescreen/apple-icon-120x120.png" />
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/img/homescreen/apple-icon-144x144.png" />
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/img/homescreen/apple-icon-152x152.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/homescreen/apple-icon-180x180.png" />
+  <link rel="apple-touch-startup-image" href="assets/img/homescreen/apple-icon.png" />
+
+  <!-- style-->
+  <link rel="stylesheet" href="assets/css/app.min.css" />
+
+</head>
+
+<body class="hold-transition page--belida"><!-- Data (letakkan di atas, cukup satu kali!)--><!--.header-->
+  <div class="header">
+    <div class="container">
+      <div class="header__inner"><!-- Logo-->
+        <div class="header__logo">
+          <a class="header__logo__link" href="/">
+            <img class="header__logo__img" src="assets/img/logo/logo-secondary.png" alt="Sele Raya" />
+            <img class="header__logo__img header__logo__img--white" src="assets/img/logo/logo-primary.png" alt="Sele Raya" /></a>
+        </div>
+        <div class="header__wrapper">
+          <div class="header__top">
+            <div class="header__top-info">
+              <div class="header__top-info__item">
+                <a class="header__top-info__link" href="tel:02183703612">
+                  <i class="header__top-info__icon sr sr-cash-register"></i>&nbsp;021-83703612</a>
+              </div>
+              <div class="header__top-info__item">
+                <a class="header__top-info__link" href="https://wa.me/622183703608" target="_blank" rel="noopener noreferrer">
+                  <i class="header__top-info__icon sr sr-phone"></i>&nbsp;021-83703608</a>
+              </div>
+              <div class="header__top-info__item">
+                <a class="header__top-info__link" href="mailto:help@seleraya.co.id">
+                  <i class="header__top-info__icon sr sr-email"></i>&nbsp;help@seleraya.co.id</a>
+              </div>
+            </div>
+          </div><!-- -------- MENU NAVIGATION ---------->
+          <nav class="header__main">
+            <div class="header__main-nav">
+              <div class="header__main-nav__item header__main-nav__item--has-sub">
+                <a class="header__main-nav__link" href="/about-us.html" aria-haspopup aria-expanded="false">About</a>
+                <div class="header__submenu">
+                  <div class="header__submenu__wrapp">
+                    <div class="header__submenu__img">
+                      <img src="assets/img/dummy/about-us.png" alt="About">
+                      <span class="header__submenu__img-caption">Innovating for People and Planet.
+                        <i class="sr sr-caret-right"></i></span>
+                      <a class="header__submenu__link" href="/about-us.html"></a>
+                    </div>
+                    <div class="header__submenu__list">
+                      <div class="header__submenu__item">
+                        <div class="header__submenu__icon">
+                          <i class="header__submenu__icon__el sr sr-chart-bar"></i>
+                        </div>
+                        <div class="header__submenu__detail">
+                          <h6 class="header__submenu__title">Key Highlight</h6>
+                          <p class="header__submenu__desc">Powering National Growth Since 1974</p>
+                        </div>
+                        <a class="header__submenu__link" href="/about/key-highlight"></a>
+                      </div>
+                      <div class="header__submenu__item">
+                        <div class="header__submenu__icon">
+                          <i class="header__submenu__icon__el sr sr-rocket"></i>
+                        </div>
+                        <div class="header__submenu__detail">
+                          <h6 class="header__submenu__title">Vision, Mission &amp; Values</h6>
+                          <p class="header__submenu__desc">Leading Energy with Purpose &amp; Integrity</p>
+                        </div>
+                        <a class="header__submenu__link" href="/about/vision-mission"></a>
+                      </div>
+                      <div class="header__submenu__item">
+                        <div class="header__submenu__icon">
+                          <i class="header__submenu__icon__el sr sr-tree-structure"></i>
+                        </div>
+                        <div class="header__submenu__detail">
+                          <h6 class="header__submenu__title">Our Team</h6>
+                          <p class="header__submenu__desc">Driven by Expertise, United by Purpose</p>
+                        </div>
+                        <a class="header__submenu__link" href="/about/team"></a>
+                      </div>
+                      <div class="header__submenu__item">
+                        <div class="header__submenu__icon">
+                          <i class="header__submenu__icon__el sr sr-link"></i>
+                        </div>
+                        <div class="header__submenu__detail">
+                          <h6 class="header__submenu__title">Beyond Energy</h6>
+                          <p class="header__submenu__desc">Investing in a Smarter Digital Future</p>
+                        </div>
+                        <a class="header__submenu__link" href="/about/beyond-energy"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="header__main-nav__item header__main-nav__item--has-sub">
+                <a class="header__main-nav__link" href="/" aria-haspopup aria-expanded="false">Businesses</a>
+                <div class="header__submenu">
+                  <div class="header__submenu--businesses">
+                    <div class="header__submenu__column">
+                      <div class="header__submenu__section">
+                        <h6 class="header__submenu--businesses-title">Sele Raya Energy</h6>
+                        <div class="header__submenu--businesses-list">
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-fire"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">PT Sele Raya Belida</h6>
+                              <p class="header__submenu__desc">Operates Belida Block, focusing on oil and gas</p>
+                            </div>
+                            <a class="header__submenu__link" href="/businesses-belida.html"></a>
+                          </div>
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-lightning"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">PT Sele Raya Energy</h6>
+                              <p class="header__submenu__desc">Manages assets to strengthen national security</p>
+                            </div>
+                            <a class="header__submenu__link" href="/businesses-energy.html"></a>
+                          </div>
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-factory"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">PT Sele Raya Sejati</h6>
+                              <p class="header__submenu__desc">Advances upstream development projects</p>
+                            </div>
+                            <a class="header__submenu__link" href="/businesses-sejati.html"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="header__submenu__column">
+                      <div class="header__submenu__section">
+                        <h6 class="header__submenu--businesses-title">Sele Raya Mining</h6>
+                        <div class="header__submenu--businesses-list">
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-boat"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">PT Sele Raya Aryasatya</h6>
+                              <p class="header__submenu__desc">Specializes in offshore tin mining via tech</p>
+                            </div>
+                            <a class="header__submenu__link" href="businesses-aryasatya.html"></a>
+                          </div>
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-sketch-logo"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">PT Sele Raya Mining</h6>
+                              <p class="header__submenu__desc">Provides coal supply and offtake for power</p>
+                            </div>
+                            <a class="header__submenu__link" href="businesses-mining.html"></a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="header__submenu__section">
+                        <h6 class="header__submenu--businesses-title">Sele Raya Venture</h6>
+                        <div class="header__submenu--businesses-list">
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-chart-line-up"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">Investidea Ventures</h6>
+                              <p class="header__submenu__desc">Drives growth through strategic investments</p>
+                            </div>
+                            <a class="header__submenu__link" href="businesses-investidea-ventures.html"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="header__submenu__column">
+                      <div class="header__submenu__section">
+                        <h6 class="header__submenu--businesses-title">Sele Raya Agriculture</h6>
+                        <div class="header__submenu--businesses-list">
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-grains"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">PT Sele Raya Agri</h6>
+                              <p class="header__submenu__desc">Sustainable plantation asset management</p>
+                            </div>
+                            <a class="header__submenu__link" href="businesses-agri.html"></a>
+                          </div>
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-clover"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">PT Amindo Wana Persada</h6>
+                              <p class="header__submenu__desc">Operates forestry projects balancing productivity</p>
+                            </div>
+                            <a class="header__submenu__link" href="businesses-amindo-wana-persada.html"></a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="header__submenu__section">
+                        <h6 class="header__submenu--businesses-title">FMCG</h6>
+                        <div class="header__submenu--businesses-list">
+                          <div class="header__submenu--businesses-item">
+                            <div class="header__submenu__icon">
+                              <i class="header__submenu__icon__el sr sr-lab"></i>
+                            </div>
+                            <div class="header__submenu__detail">
+                              <h6 class="header__submenu__title">Sele Ingredients</h6>
+                              <p class="header__submenu__desc">Manufactures high quality ingredients, goods</p>
+                            </div>
+                            <a class="header__submenu__link" href="businesses-ingredients.html"></a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="header__main-nav__item header__main-nav__item--has-sub">
+                <a class="header__main-nav__link" href="/csr.html" aria-haspopup aria-expanded="false">CSR</a>
+                <div class="header__submenu">
+                  <div class="header__submenu__wrapp">
+                    <div class="header__submenu__img">
+                      <img src="assets/img/dummy/csr.png" alt="CSR">
+                      <span class="header__submenu__img-caption">Sustainability in Action
+                        <i class="sr sr-caret-right"></i></span>
+                      <a class="header__submenu__link" href="/csr.html"></a>
+                    </div>
+                    <div class="header__submenu__list">
+                      <div class="header__submenu__item">
+                        <div class="header__submenu__icon">
+                          <i class="header__submenu__icon__el sr sr-cactus"></i>
+                        </div>
+                        <div class="header__submenu__detail">
+                          <h6 class="header__submenu__title">Environment</h6>
+                          <p class="header__submenu__desc">Protecting nature through sustainable operations</p>
+                        </div>
+                        <a class="header__submenu__link" href="/csr/#environment"></a>
+                      </div>
+                      <div class="header__submenu__item">
+                        <div class="header__submenu__icon">
+                          <i class="header__submenu__icon__el sr sr-hand-heart"></i>
+                        </div>
+                        <div class="header__submenu__detail">
+                          <h6 class="header__submenu__title">Social</h6>
+                          <p class="header__submenu__desc">Creating opportunities for local communities</p>
+                        </div>
+                        <a class="header__submenu__link" href="/csr/#social"></a>
+                      </div>
+                      <div class="header__submenu__item">
+                        <div class="header__submenu__icon">
+                          <i class="header__submenu__icon__el sr sr-scales"></i>
+                        </div>
+                        <div class="header__submenu__detail">
+                          <h6 class="header__submenu__title">Governance</h6>
+                          <p class="header__submenu__desc">Ensuring integrity through accountable leadership</p>
+                        </div>
+                        <a class="header__submenu__link" href="/csr/#governance"></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="header__main-nav__item">
+                <a class="header__main-nav__link" href="/news.html" aria-expanded="false">News</a>
+              </div>
+              <div class="header__main-nav__item">
+                <a class="header__main-nav__link" href="/awards.html" aria-expanded="false">Awards</a>
+              </div>
+              <div class="header__main-nav__item">
+                <a class="header__main-nav__link" href="/milestones.html" aria-expanded="false">Milestones</a>
+              </div>
+              <div class="header__main-nav__item">
+                <a class="header__main-nav__link" href="/career.html" aria-expanded="false">Career</a>
+              </div>
+            </div>
+            <div class="header__lang">
+              <a class="header__lang__text" href="#" title="Change to English Version">
+                <span class="btn__text">EN</span></a>
+            </div>
+            <div class="header__top-cta">
+              <a href="/contact">
+                <span class="btn__text">Contact
+                  <i class="sr sr-caret-right"></i></span></a>
+            </div>
+          </nav>
+        </div>
+        <div class="header__mobile__menu">
+          <div class="header__lang header__lang__mobile">
+            <a class="header__lang__text" href="#" title="Change to English Version">
+              <span class="btn__text">EN</span></a>
+          </div>
+          <div class="header__burger-menu"><button class="header__burger-menu__btn js-toggle-menu" type="button" aria-label="Open menu">
+              <span class="header__burger-menu__bar"></span>
+              <span class="header__burger-menu__bar"></span></button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--.main-site-->
+  <div class="main-site main-site--hide js-main-site">
+
+    <!--.hero-banner-->
+    <div class="hero-banner">
+      <div class="hero-banner-inner js-hero-banner">
+        <!--.hero-banner__item-->
+        <div class="hero-banner__item">
+          <div class="hero-banner__img">
+            <img class="hero-banner__img__el" src="assets/img/dummy/businesses-banner-belida.jpg" alt="Proven reserves. Seamless production." />
+          </div>
+          <div class="hero-banner__content">
+            <div class="container">
+              <div class="hero-banner__text">
+                <div class="hero-banner__tag"><i class="sr-factory hero-banner__tag__icon"></i><span class="hero-banner__tag__text">Sele Raya Belida</span></div>
+                <h1 class="hero-banner__title">Proven reserves. Seamless production.</h1>
+                <p class="hero-banner__desc">From first gas-in at the Cantik Field to consistent oil delivery at Sungai Anggur, we deliver high-value energy through reliable infrastructure and local expertise.</p>
+                <div class="hero-banner__btn">
+                  <a class="btn btn--secondary btn--icon" href="https://www.seleraya.co.id/business/sele-raya-belida" target="_blank">
+                    <span class="btn__text">Learn More</span>
+                    <i class="sr sr-caret-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!--businesses-->
+    <div class="businesses-key businesses-key--belida">
+      <div class="container">
+        <div class="businesses-key__head">
+          <h2 class="businesses-key__title">Operational Profile &amp; Ownership</h2>
+        </div>
+        <div class="businesses-key__body">
+          <div class="businesses-key__content">
+            <div class="businesses-key__list">
+              <div class="businesses-key__item">
+                <div class="businesses-key__icon">
+                  <img class="businesses-key__icon__el" src="assets/img/dummy/hard-hat.svg" alt="Operator" />
+                </div>
+                <div class="businesses-key__text">
+                  <h3 class="businesses-key__label">Operator</h3>
+                  <p class="businesses-key__desc">PT Sele Raya Belida 95% Participating Interest</p>
+                </div>
+              </div>
+              <div class="businesses-key__item">
+                <div class="businesses-key__icon">
+                  <img class="businesses-key__icon__el" src="assets/img/dummy/users.svg" alt="Partner" />
+                </div>
+                <div class="businesses-key__text">
+                  <h3 class="businesses-key__label">Partner</h3>
+                  <p class="businesses-key__desc">CIEC 5% Participating Interest</p>
+                </div>
+              </div>
+              <div class="businesses-key__item">
+                <div class="businesses-key__icon">
+                  <img class="businesses-key__icon__el" src="assets/img/dummy/calendar-check.svg" alt="Contract Term" />
+                </div>
+                <div class="businesses-key__text">
+                  <h3 class="businesses-key__label">Contract Term</h3>
+                  <p class="businesses-key__desc">12 December 2004 – 11 December 2034</p>
+                </div>
+              </div>
+              <div class="businesses-key__item">
+                <div class="businesses-key__icon">
+                  <img class="businesses-key__icon__el" src="assets/img/dummy/map-trifold.svg" alt="Location" />
+                </div>
+                <div class="businesses-key__text">
+                  <h3 class="businesses-key__label">Location</h3>
+                  <p class="businesses-key__desc">Muara Enim, South Sumatra, 95 km west of Palembang</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="businesses-key__map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4797.7267092993125!2d106.848541!3d-6.2296168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f305d1c582d7%3A0xab4ec647a3a86a31!2sPT%20Sele%20Raya%20Belida!5e1!3m2!1sid!2sid!4v1775205558125!5m2!1sid!2sid" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+        </div>
+      </div>
+    </div>
+    <!--belida-->
+    <div class="belida-core">
+      <div class="container">
+        <div class="belida-core__head">
+          <h2 class="belida-core__title">Core Producing Assets</h2>
+          <p class="belida-core__desc">The Belida Block currently generates value through two flagship projects, both of which are fully integrated into Indonesia’s midstream infrastructure.</p>
+        </div>
+        <div class="belida-core__body">
+          <div class="belida-core__section">
+            <div class="belida-core__img">
+              <img class="belida-core__img__el" src="assets/img/dummy/belida-core-1.jpg" alt="The Sungai Anggur Field Oil Focused" />
+            </div>
+            <div class="belida-core__text">
+              <h3 class="belida-core__section__title">The Sungai Anggur Field Oil Focused</h3>
+              <div class="belida-core__list">
+                <div class="belida-core__item">
+                  <div class="belida-core__item__head">
+                    <div class="belida-core__item__icon"><img src="assets/img/dummy/info.svg" alt="Status" /></div>
+                    <h3 class="belida-core__item__title">Status</h3>
+                  </div>
+                  <div class="belida-core__item__body">
+                    <p class="belida-core__item__desc">Producing since August 2018.</p>
+                  </div>
+                </div>
+                <div class="belida-core__item">
+                  <div class="belida-core__item__head">
+                    <div class="belida-core__item__icon"><img src="assets/img/dummy/factory.svg" alt="Infrastructure" /></div>
+                    <h3 class="belida-core__item__title">Infrastructure</h3>
+                  </div>
+                  <div class="belida-core__item__body">
+                    <p class="belida-core__item__desc">Features a dedicated Crude Oil Transfer Line and Custody Meter Facility.</p>
+                  </div>
+                </div>
+                <div class="belida-core__item">
+                  <div class="belida-core__item__head">
+                    <div class="belida-core__item__icon"><img src="assets/img/dummy/globe-hemisphere-east.svg" alt="Market" /></div>
+                    <h3 class="belida-core__item__title">Market</h3>
+                  </div>
+                  <div class="belida-core__item__body">
+                    <p class="belida-core__item__desc">100% of production is delivered via a 20 inch transmission line to PT Pertamina’s Refinery Unit III in Plaju.</p>
+                  </div>
+                </div>
+                <div class="belida-core__item">
+                  <div class="belida-core__item__head">
+                    <div class="belida-core__item__icon"><img src="assets/img/dummy/chart-line-up.svg" alt="Growth" /></div>
+                    <h3 class="belida-core__item__title">Growth</h3>
+                  </div>
+                  <div class="belida-core__item__body">
+                    <p class="belida-core__item__desc">Recent expansions include the Sungai Anggur Selatan development (POD approved 31 October 2025).</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="belida-core__section belida-core__section--reverse">
+            <div class="belida-core__img">
+              <img class="belida-core__img__el" src="assets/img/dummy/belida-core-2.jpg" alt="The Cantik Field Gas Focused" />
+            </div>
+            <div class="belida-core__text">
+              <h3 class="belida-core__section__title">The Cantik Field Gas Focused</h3>
+              <div class="belida-core__list">
+                <div class="belida-core__item">
+                  <div class="belida-core__item__head">
+                    <div class="belida-core__item__icon"><img src="assets/img/dummy/info-primary.svg" alt="Status" /></div>
+                  </div>
+                  <div class="belida-core__item__body">
+                    <h3 class="belida-core__item__title">Status</h3>
+                    <p class="belida-core__item__desc">First gas achieved in July 2020.</p>
+                  </div>
+                </div>
+                <div class="belida-core__item">
+                  <div class="belida-core__item__head">
+                    <div class="belida-core__item__icon"><img src="assets/img/dummy/database-primary.svg" alt="Capacity" /></div>
+                  </div>
+                  <div class="belida-core__item__body">
+                    <h3 class="belida-core__item__title">Capacity</h3>
+                    <p class="belida-core__item__desc">Features a dedicated 12 inch Gas Sales Line and Custody Meter Facility.</p>
+                  </div>
+                </div>
+                <div class="belida-core__item">
+                  <div class="belida-core__item__head">
+                    <div class="belida-core__item__icon"><img src="assets/img/dummy/globe-hemisphere-east-primary.svg" alt="Market" /></div>
+                  </div>
+                  <div class="belida-core__item__body">
+                    <h3 class="belida-core__item__title">Market</h3>
+                    <p class="belida-core__item__desc">Secured by an 11-year Gas Sales Agreement (GSA) with PT Pertagas Niaga.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--belida-explore-->
+    <div class="belida-explore">
+      <div class="container">
+        <div class="belida-explore__inner">
+          <div class="belida-explore__content">
+            <h3 class="belida-explore__label">Future Upside &amp; Exploration Potential</h3>
+            <p class="belida-explore__desc">Beyond current production, the Belida Block holds significant &quot;low-risk&quot; exploration targets that can be quickly monetized using existing facilities.</p>
+            <div class="belida-explore__img">
+              <img class="belida-explore__img-el" src="assets/img/dummy/belida-exploration.jpg" alt="Future Upside &amp; Exploration Potential" />
+            </div>
+          </div>
+          <div class="belida-explore__list">
+            <div class="belida-explore__item">
+              <h3 class="belida-explore__item__title">Sungai Anggur Selatan</h3>
+              <div class="belida-explore__item__desc">
+                <p>Strategically located adjacent to proven commercial fields Tepus, Pandan, and Petanang Lembak Deep strengthens our growth portfolio.</p>
+                <p>The area has identified 8 prospective leads with estimated unrisked recoverable resources of</p>
+                <p>These findings position Lembak Deep as a key contributor to future reserve expansion.</p>
+              </div>
+            </div>
+            <div class="belida-explore__item">
+              <h3 class="belida-explore__item__title">Lebong Area Baturaja Reservoir</h3>
+              <div class="belida-explore__item__desc">
+                <p>Lebong Area presents a significant heavy oil opportunity with an estimated 500 MMBOIP (Original Oil in Place).</p>
+                <p>Initial well tests have successfully encountered pay zones up to 110 feet, confirming the reservoir’s substantial development potential.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--businesses-why-->
+    <div class="businesses-why businesses-why--belida">
+      <div class="container">
+        <div class="businesses-why__head">
+          <h2 class="businesses-why__title">Why Belida Block?</h2>
+        </div>
+        <div class="businesses-why__body">
+          <div class="businesses-why__item">
+            <div class="businesses-why__icon">
+              <img class="businesses-why__icon__el" src="/assets/img/dummy/medal.svg" alt="Proven Success" />
+            </div>
+            <div class="businesses-why__text">
+              <h3 class="businesses-why__label">Proven Success</h3>
+              <p class="businesses-why__desc">A track record of moving from discovery to &quot;First Oil/Gas&quot; efficiently.</p>
+            </div>
+          </div>
+          <div class="businesses-why__item">
+            <div class="businesses-why__icon">
+              <img class="businesses-why__icon__el" src="/assets/img/dummy/gear-fine.svg" alt="Strategic Infrastructure" />
+            </div>
+            <div class="businesses-why__text">
+              <h3 class="businesses-why__label">Strategic Infrastructure</h3>
+              <p class="businesses-why__desc">Direct tie-ins to Pertamina and Medco transmission lines ensure immediate cash flow for new discoveries.</p>
+            </div>
+          </div>
+          <div class="businesses-why__item">
+            <div class="businesses-why__icon">
+              <img class="businesses-why__icon__el" src="/assets/img/dummy/hard-drives.svg" alt="Modern Data" />
+            </div>
+            <div class="businesses-why__text">
+              <h3 class="businesses-why__label">Modern Data</h3>
+              <p class="businesses-why__desc">All prospects are backed by modern seismic delineation, significantly reducing exploration risk.</p>
+            </div>
+          </div>
+          <div class="businesses-why__item">
+            <div class="businesses-why__icon">
+              <img class="businesses-why__icon__el" src="/assets/img/dummy/flower-lotus.svg" alt="Long Term Stability" />
+            </div>
+            <div class="businesses-why__text">
+              <h3 class="businesses-why__label">Long Term Stability</h3>
+              <p class="businesses-why__desc">With the PSC extending to 2034, there is a decade of runway for secondary recovery and deep exploration.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div><!--footer-->
+  <div class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__top"><!-- Logo-->
+          <div class="footer__logo">
+            <a class="footer__logo__link" href="/">
+              <img class="footer__logo__img" src="assets/img/logo/logo-primary.png" alt="logo"></a>
+          </div><!-- Menu group columns-->
+          <div class="footer__menu">
+            <div class="footer__menu__grup">
+              <div class="footer__menu__grup-item">
+                <h6 class="footer__menu__grup-title">Energy</h6>
+                <ul class="footer__menu__grup-list">
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/belida">Sele Raya Belida</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/energi">Sele Raya Energy</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/sejati">Sele Raya Sejati</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer__menu__grup-item">
+                <h6 class="footer__menu__grup-title">Mining</h6>
+                <ul class="footer__menu__grup-list">
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/mining">Sele Raya Mining</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/aryasatya">Sele Raya Aryasatya</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__menu__grup">
+              <div class="footer__menu__grup-item">
+                <h6 class="footer__menu__grup-title">Agriculture</h6>
+                <ul class="footer__menu__grup-list">
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/agri">Sele Raya Agri</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/persada">Amindo Wana Persada</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer__menu__grup-item">
+                <h6 class="footer__menu__grup-title">Venture</h6>
+                <ul class="footer__menu__grup-list">
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/ventures">Investidea Ventures</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer__menu__grup-item">
+                <h6 class="footer__menu__grup-title">FMCG</h6>
+                <ul class="footer__menu__grup-list">
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/ingredients">Sele Ingredients</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="footer__menu__grup">
+              <div class="footer__menu__grup-item">
+                <h6 class="footer__menu__grup-title">Company</h6>
+                <ul class="footer__menu__grup-list">
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/about">About</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/awards">Awards</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/milestones">Milestones</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/career">Career</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/contact-us.html">Contact</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/csr">CSR</a>
+                  </li>
+                  <li class="footer__menu__grup-items">
+                    <a class="footer__menu__grup-link" href="/news">News</a>
+                  </li>
+                </ul>
+              </div>
+            </div><!-- Information Column (special)-->
+            <div class="footer__menu__grup">
+              <div class="footer__menu__grup-item">
+                <h6 class="footer__menu__grup-title-contact">Information</h6>
+                <ul class="footer__menu__grup-contact">
+                  <li class="footer__menu__grup-contact-items">
+                    <div class="footer__menu__grup-map">
+                      <i class="sr sr-map-pin-2"></i>
+                      <span class="info__label">Graha Sele Building
+                        Jl. Tebet Raya No. 8-10
+                        Tebet Barat, Tebet, Jakarta Selatan
+                        DKI Jakarta 12810</span>
+                    </div>
+                  </li>
+                  <li class="footer__menu__grup-contact-items">
+                    <a class="footer__menu__grup-contact-link" href="tel:02183703608">
+                      <i class="sr sr-phone"></i>
+                      <span class="info__label">021-83703608</span></a>
+                  </li>
+                  <li class="footer__menu__grup-contact-items">
+                    <a class="footer__menu__grup-contact-link" href="mailto:help@seleraya.co.id">
+                      <i class="sr sr-email"></i>
+                      <span class="info__label">help@seleraya.co.id</span></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="footer__bottom">
+          <p class="footer__bottom__copyright">Copyright © 2026</p>
+          <a class="footer__bottom__privacy footer__menu__grup-link" href="/privacy-policy.html">Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- schema organization-->
+  <script type="application/ld+json">
+    {
+
+      "@context": "http://schema.org",
+      "@id": "https://www.sele-raya.id#organization",
+      "@type": "Organization",
+      "name": "Sele Raya",
+      "url": "https://www.sele-raya.id",
+      "logo": "https://www.sele-raya.id/assets/img/logo/bilik-id.png",
+      "contactPoint": [
+
+        {
+          "@type": "ContactPoint",
+          "telephone": ,
+          "contactType": ,
+          "areaServed":
+        }
+      ],
+      "sameAs": ["https://www.youtube.com/bilik.id", "https://www.facebook.com/bilik.id", "https://www.instagram.com/bilik_id", "https://twitter.com/bilik_id"]
+    }
+
+  </script>
+
+  <!-- schema website-->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@id": "https://www.sele-raya.id#website",
+      "@type": "WebSite",
+      "url": "https://www.sele-raya.id",
+      "name": "Sele Raya"
+    }
+
+  </script>
+
+  <!-- schema webpage-->
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@id": "https://www.sele-raya.id#webpage",
+      "@type": "WebPage",
+      "url": "https://www.sele-raya.id",
+      "name": "Sele Raya"
+    }
+
+  </script>
+
+  <!-- script-->
+  <script src="assets/js/vendor.min.js"></script>
+  <script src="assets/js/app.min.js"></script>
+
+</body>
+
+</html>
